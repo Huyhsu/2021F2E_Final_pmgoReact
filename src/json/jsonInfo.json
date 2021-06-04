@@ -1,0 +1,47 @@
+[
+  {
+    "title": "PMGO",
+    "name": "allPokes",
+    "url": "/"
+  },
+  {
+    "title": "Kanto",
+    "name": "Kanto",
+    "url": "/pokes/kanto"
+  },
+  {
+    "title": "Johto",
+    "name": "Johto",
+    "url": "/pokes/johto"
+  },
+  {
+    "title": "Hoenn",
+    "name": "Hoenn",
+    "url": "/pokes/hoenn"
+  },
+  {
+    "title": "Sinnoh",
+    "name": "Sinnoh",
+    "url": "/pokes/sinnoh"
+  },
+  {
+    "title": "Unova",
+    "name": "Unova",
+    "url": "/pokes/unova"
+  },
+  {
+    "title": "Kalos",
+    "name": "Kalos",
+    "url": "/pokes/kalos"
+  },
+  {
+    "title": "Galar",
+    "name": "Galar",
+    "url": "/pokes/galar"
+  },
+  {
+    "title": "Feed JSON Page",
+    "name": "FeedJSONPage",
+    "url": "/admin/feed-pokes"
+  }
+]

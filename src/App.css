@@ -1,0 +1,521 @@
+@import '~antd/dist/antd.css';
+@font-face {
+    font-family: FakePearl-Regular;
+    src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff2) format("woff2")
+    , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff) format("woff");
+}
+/* RWD Container */
+.container {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    margin: auto;
+}
+
+/* sm */
+@media (min-width: 576px) { 
+    .container {
+        width: 540px;
+    }
+} 
+
+/* md */
+@media (min-width: 768px) {
+    .container {
+        width: 720px;
+    }
+} 
+
+/* lg */
+@media (min-width: 992px) {
+    .container {
+        width: 960px;
+    }
+} 
+
+/* xl */
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+} 
+
+/* xxl */
+@media (min-width: 1600px) {
+    .container {
+        width: 1500px;
+    }
+}
+
+/* General */
+html,
+body {
+    font-size: 62.5%;
+    font-family: FakePearl-Regular;
+    line-height: 1.6;
+    background-image: url(./img/body__bg2.png);
+    background-attachment: fixed;
+    background-color: #e7f0e1;
+}
+
+.layout__main {
+    background-color: #e7f0e1;
+}
+
+/* .layout__content {
+    min-height: 100vh;
+    background-image: url(./img/container__bg.png);
+} */
+
+.layout__content {
+    min-height: 100vh;
+    position: relative;
+    background-color: #e7f0e1;
+    top: 2rem;
+}
+
+.layout__content:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-image: url(./img/container__bg.png);
+}
+
+.layout__header,
+.layout__footer {
+    padding: 0;
+    height: auto;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    text-align: center;
+}
+
+.header__wrap {
+    display: flex;
+    padding-top: 2rem;
+    position: relative;
+    background-color: #e7f0e1;
+}
+
+.header__text {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header__title {
+    color: #4d7072;
+    font-size: 3.6rem;
+    line-height: 0.8;
+    padding: 0;
+    cursor: pointer;
+}
+
+.header__slogan {
+    color: #4d7072;
+    font-size: 1.8rem;
+    opacity: 0.8;
+    padding: 0;
+    margin: 0;
+    /* line-height: 0.8; */
+}
+
+.header__hr--line {
+    background-color: #4d7072;
+    height: 0.2rem;
+    opacity: 0.2;
+}
+
+/* NavBar */
+.navBar__wrap {
+    position: relative;
+    background-color: #e7f0e1;
+}
+.navBar {
+    display: flex;
+    position: relative;
+    background-color: #e7f0e1;
+    justify-content: space-around;
+}
+
+.nav__item {
+    color: #4d7072;
+    opacity: 0.6;
+    font-size: 2.4rem;
+    transition: opacity .25s linear;
+}
+
+.nav__item:hover {
+    color: #4d7072;
+    opacity: 1;
+}
+
+.nav__item--active {
+    color: #1d8796;
+    opacity: 1;
+}
+
+.navBar__hr--line {
+    background-color: #4d7072;
+    height: 0.2rem;
+    opacity: 0.2;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 2rem;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 666;
+    box-shadow:0px 12px 6px -12px #010101;
+}
+
+/* Drawer */
+.ant-drawer-header {
+    border-bottom: none;
+}
+
+.ant-drawer-title {
+    text-align: center;
+}
+
+.ant-drawer-content {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .collapse__mobile .nav__item {
+        display: none;
+    }
+}
+
+/* Hamburger Menu */
+.hamMenu {
+    display: inline-block;
+    width: 3.2rem;
+    height: 2.8rem;
+    /* position: absolute; */
+    position: relative;
+    top: 0.4rem;
+    left: 1rem;
+    z-index: 999;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+    border: 0.3rem solid #1d8796;
+    border-radius: 0.6rem;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .show__mobile {
+        display: none;
+    }
+}
+
+.hamMenu:hover {
+    cursor: pointer;
+}
+span.hamMenu__bar {
+    display: inline-block;
+    position: absolute;
+    background-color: #1d8796;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+    opacity: 1;
+    transition: .25s ease-in-out;
+    transform: rotate(0deg);
+}
+span.hamMenu__bar1 {
+    width: 90%;
+    top: 0.1rem;
+    left: 0.144rem;
+}
+
+span.hamMenu__bar2,
+span.hamMenu__bar3 {
+    width: 90%;
+    top: 0.85rem;
+    left: 0.144rem;
+}
+
+span.hamMenu__bar4 {
+    width: 90%;
+    opacity: 1;
+    bottom: 0.1rem;
+    left: 0.144rem;
+}
+
+span.hamMenu__bar1--touch {
+    top: 1rem;
+    width: 0%;
+    left: 50%;
+}
+
+span.hamMenu__bar2--touch {
+    transform: rotate(45deg);
+}
+
+span.hamMenu__bar3--touch {
+    transform: rotate(-45deg);
+}
+span.hamMenu__bar4--touch {
+    bottom: 1rem;
+    width: 0%;
+    left: 50%;
+}
+
+/* Card and PokeItem-component*/
+.poke__card {
+    border-radius: 2rem;
+    background-color: #f2f2f2;
+    transition: background-color .25s linear;
+}
+
+.poke__card:hover {
+    background-color: #e6e6e6;
+}
+
+.pokeCard__img {
+    display: block;
+    margin: auto;
+}
+
+.pokeItem__name {
+    color: #1d8796;
+}
+
+.pokeItem__no {
+    color: #4d7072;
+    opacity: 0.6;
+}
+
+.pokeItem__type-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.pokeItem__type {
+    color: #fff;
+    text-align: center;
+    width: 6rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 1rem;
+}
+
+.pokeItem__type2 {
+    margin-left: 0.5rem;
+}
+
+.noneType {
+    display: none;
+}
+
+.grassType {
+    background-color: #5cbf69;
+}
+
+.poisonType {
+    background-color: #b763ce;
+}
+
+.psychicType {
+    background-color: #fb8a88;
+}
+
+.fireType {
+    background-color: #ffa54e;
+}
+
+.iceType {
+    background-color: #84d5cc;
+}
+
+.groundType {
+    background-color: #d68858;
+}
+
+.bugType {
+    background-color: #9dc430;
+}
+
+.fairyType {
+    background-color: #f098e5;
+}
+
+.rockType {
+    background-color: #cec28f;
+}
+
+.steelType {
+    background-color: #5498a4;
+}
+
+.darkType {
+    background-color: #666675;
+}
+
+.electricType {
+    background-color: #f7da58;
+}
+
+.normalType {
+    background-color: #9da0a0;
+}
+
+.waterType {
+    background-color: #61abdd;
+}
+
+.flyingType {
+    background-color: #9bb4e6;
+}
+
+.dragonType {
+    background-color: #0876bd;
+}
+
+.ghostType {
+    background-color: #666ec2;
+}
+
+.fightingType {
+    background-color: #d4465a;
+}
+
+/* PokeDetail-component */
+.pokeDetail__wrap {
+    margin-top: 2rem;
+}
+
+.pokeDetail__name {
+    font-size: 3.6rem;
+    color: #1d8796;
+}
+
+.pokeDetail__category {
+    font-size: 2.4rem;
+    color: #4d7072;
+}
+
+.pokeDetail__type-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.pokeDetail__type-title {
+    font-size: 2.4rem;
+    color: #4d7072;
+}
+
+.pokeDetail__type {
+    font-size: 2.4rem;
+    color: #fafafa;
+    text-align: center;
+    width: 12rem;
+    height: 3rem;
+    line-height: 3rem;
+    border-radius: 3rem;
+}
+
+.pokeDetail__type2 {
+    margin-left: 1rem;
+}
+
+.pokeDetail__about {
+    font-size: 2.4rem;
+    color: #4d7072;
+}
+
+.pokeDetail__style-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    font-size: 2.4rem;
+    color: #1d8796;
+}
+
+.select__style {
+    font-size: 1.6rem;
+    color: #1d8796;
+}
+
+.pokeDetail__shiny {
+    margin-top: 1rem;
+}
+
+.pokeDetail__btn-toBag {
+    height: auto;
+    font-size: 2.4rem;
+    color: #e7f0e1;
+    background-color: #1d8796;
+    margin-top: 2rem;
+}
+
+.pokeDetail__btn-toBag:hover {
+    background-color: #1d8796;
+    opacity: 0.7;
+}
+
+.bagDetail__tips {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #1d8796;
+    margin-top: 10rem;
+}
+
+.bagDetail__delete-wrap {
+    color: #1d8796;
+}
+
+.bagDetail__delete-btn {
+    text-align: right;
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+.bagDetail__delete-btn:hover {
+    color: #fafafa;
+}
+
+
+/* Footer */
+.footer {
+    text-align: center;
+    background-color: #e7f0e1;
+    margin-top: 2rem;
+}
+
+.footer__hr--line {
+    background-color: #4d7072;
+    height: 0.2rem;
+    opacity: 0.2;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 2rem;
+}
+
+.footer__copyright {
+    color: #4d7072;
+}
+
+/* Bag Summary */
+.header__bag-summary-text {
+    color: #4d7072;
+}
+.header__bag-summary {
+    position: absolute;
+    right: 3rem;
+    cursor: pointer;
+}
