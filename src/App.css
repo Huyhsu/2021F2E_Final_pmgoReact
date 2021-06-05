@@ -519,3 +519,14 @@ span.hamMenu__bar4--touch {
     right: 3rem;
     cursor: pointer;
 }
+
+/* Spinner */
+.spinner__wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+.spinner {
+    margin-top: 20vh;
+}

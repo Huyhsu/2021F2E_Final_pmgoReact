@@ -4,7 +4,7 @@ import { feedJSONToFirebase } from "../actions"
 import { StoreContext } from "../store";
 
 export default function Feeder() {
-   const { state: { feedProducts: { loading } }, dispatch } = useContext(StoreContext);
+   const { state: { feedPokes: { loading } }, dispatch } = useContext(StoreContext);
 
    return (
 

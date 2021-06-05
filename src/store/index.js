@@ -106,6 +106,25 @@ function reducer(state, action) {
           shiny: action.payload,
         },
       };
+    case BEGIN_POKES_REQUEST:
+      return {
+        ...state,
+        requestPokes: { ...state.requestPokes, loading: true },
+      };
+    case SUCCESS_POKES_REQUEST:
+      return {
+        ...state,
+        requestPokes: { ...state.requestPokes, loading: false },
+      };
+    case FAIL_POKES_REQUEST:
+      return {
+        ...state,
+        requestPokes: {
+          ...state.requestPokes,
+          loading: false,
+          error: action.payload,
+        },
+      };
     case ADD_BAG_ITEM:
       const item = action.payload;
       // const poke = state.bagItems.find((x) => x.id === item.id);

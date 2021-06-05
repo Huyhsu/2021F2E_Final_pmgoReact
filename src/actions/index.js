@@ -95,6 +95,7 @@ export const setPokeDetail = async (dispatch, pokeId, qty) => {
           qty,
         },
       });
+      dispatch({ type: SUCCESS_POKES_REQUEST });
   } catch (error) {
     console.log(error);
     dispatch({ type: FAIL_POKES_REQUEST, payload: error })
