@@ -40,9 +40,9 @@ export const getPokes = async (url) => {
   // QUERY POKEMONS
   let querySnapshot;
   if (collectionName === "allPokes")
-    querySnapshot = await allPokesCollectionRef.get();
+    querySnapshot = await allPokesCollectionRef.orderBy("number").get();
   else
-    querySnapshot = await allPokesCollectionRef.where("areaEn", "==", collectionName).get();
+    querySnapshot = await allPokesCollectionRef.where("areaEn", "==", collectionName).orderBy("number", "asc").get();
   querySnapshot.forEach((doc) => {
     jsonPokes.push(doc.data());
   });

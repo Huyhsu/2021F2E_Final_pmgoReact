@@ -14,9 +14,21 @@ import {
   BEGIN_POKES_REQUEST,
   SUCCESS_POKES_REQUEST,
   FAIL_POKES_REQUEST,
+  BEGIN_LOGIN_REQUEST,
+  SUCCESS_LOGIN_REQUEST,
+  FAIL_LOGIN_REQUEST,
+  LOGOUT_REQUEST,
+  REMEMBER_LOGIN,
+  BEGIN_REGISTER_REQUEST,
+  SUCCESS_REGISTER_REQUEST,
+  FAIL_REGISTER_REQUEST,
+  BEGIN_UPDATE_USERINFO,
+  SUCCESS_UPDATE_USERINFO,
+  FAIL_UPDATE_USERINFO,
 } from "../utils/constants";
 
 export const StoreContext = createContext();
+
 let bagItems = localStorage.getItem("bagItems")
   ? JSON.parse(localStorage.getItem("bagItems"))
   : [];
@@ -24,6 +36,13 @@ let bagItems = localStorage.getItem("bagItems")
 let sortBagItems = localStorage.getItem("sortBagItems")
   ? JSON.parse(localStorage.getItem("sortBagItems"))
   : [];
+
+let userInfo;
+try {
+  userInfo = JSON.parse(localStorage.getItem("userInfo"));
+} catch (e) {
+  userInfo = null;
+}
 
 const initialState = {
   page: {
@@ -41,14 +60,20 @@ const initialState = {
   },
   bagItems,
   sortBagItems,
-	// 
-	feedProducts: {
+  //
+  feedPokes: {
     loading: false,
     error: null,
   },
-  requestProducts: {
+  requestPokes: {
     loading: false,
     error: null,
+  },
+  userSignIn: {
+    loading: false,
+    userInfo,
+    remember: true,
+    error: "",
   },
 };
 
@@ -72,7 +97,7 @@ function reducer(state, action) {
     case SET_POKE_DETAIL:
       return {
         ...state,
-        pokeDetail: {...state.pokeDetail, ...action.payload,}
+        pokeDetail: { ...state.pokeDetail, ...action.payload },
       };
     case SET_POKE_SHINY:
       return {
@@ -105,6 +130,28 @@ function reducer(state, action) {
       const newBagItems = state.bagItems.splice(removedItemIndex, 1);
       // bagItems = state.bagItems.filter((x) => x.id !== action.payload);
       return { ...state, newBagItems };
+    case BEGIN_LOGIN_REQUEST:
+      return { ...state, userSignin: { ...state.userSignin, loading: true } };
+    case SUCCESS_LOGIN_REQUEST:
+      return {
+        ...state,
+        userSignin: {
+          ...state.userSignin,
+          loading: false,
+          userInfo: action.payload,
+          error: "",
+        },
+      };
+    case FAIL_LOGIN_REQUEST:
+      return {
+        ...state,
+        userSignin: {
+          ...state.userSignin,
+          loading: false,
+          userInfo: null,
+          error: action.payload,
+        },
+      };
     default:
       return state;
   }

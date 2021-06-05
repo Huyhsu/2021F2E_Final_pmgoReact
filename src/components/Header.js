@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { StoreContext } from "../store";
 import BagSummary from "./BagSummary";
+import UserInfo from "./UserInfo";
 import { setPage } from "../actions";
-// import { getJSON } from "../api/index2.js";
 
 export default function Header() {
     const { dispatch } = useContext(StoreContext);
@@ -25,6 +25,7 @@ export default function Header() {
                     <p className="header__slogan">圖鑑</p>
                     </div>
                     <BagSummary />
+                    <UserInfo />
                 </div>
             </header>
         </>

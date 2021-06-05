@@ -2,6 +2,7 @@
     {
         "id": "bulbasaur",
         "no": "1",
+        "number": 1,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "妙蛙種子",
@@ -18,6 +19,7 @@
     {
         "id": "ivysaur",
         "no": "2",
+        "number": 2,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "妙蛙草",
@@ -35,6 +37,7 @@
     {
         "id": "venusaur",
         "no": "3",
+        "number": 3,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "妙蛙花",
@@ -51,6 +54,7 @@
     {
         "id": "charmander",
         "no": "4",
+        "number": 4,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "小火龍",
@@ -67,6 +71,7 @@
     {
         "id": "charmeleon",
         "no": "5",
+        "number": 5,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "火恐龍",
@@ -83,6 +88,7 @@
     {
         "id": "charizard",
         "no": "6",
+        "number": 6,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "噴火龍",
@@ -99,6 +105,7 @@
     {
         "id": "squirtle",
         "no": "7",
+        "number": 7,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "傑尼龜",
@@ -115,6 +122,7 @@
     {
         "id": "wartortle",
         "no": "8",
+        "number": 8,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "卡咪龜",
@@ -131,6 +139,7 @@
     {
         "id": "blastoise",
         "no": "9",
+        "number": 9,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "水箭龜",
@@ -147,6 +156,7 @@
     {
         "id": "caterpie",
         "no": "10",
+        "number": 10,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "綠毛蟲",
@@ -163,6 +173,7 @@
     {
         "id": "metapod",
         "no": "11",
+        "number": 11,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "鐵甲蛹",
@@ -179,6 +190,7 @@
     {
         "id": "butterfree",
         "no": "12",
+        "number": 12,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "巴大蝶",
@@ -195,6 +207,7 @@
     {
         "id": "weedle",
         "no": "13",
+        "number": 13,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "獨角蟲",
@@ -211,6 +224,7 @@
     {
         "id": "kakuna",
         "no": "14",
+        "number": 14,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "鐵殼蛹",
@@ -227,6 +241,7 @@
     {
         "id": "beedrill",
         "no": "15",
+        "number": 15,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "大針鋒",
@@ -243,6 +258,7 @@
     {
         "id": "pidgey",
         "no": "16",
+        "number": 16,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "波波",
@@ -259,6 +275,7 @@
     {
         "id": "pidgeotto",
         "no": "17",
+        "number": 17,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "比比鳥",
@@ -275,6 +292,7 @@
     {
         "id": "pidgeot",
         "no": "18",
+        "number": 18,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "大比鳥",
@@ -291,6 +309,7 @@
     {
         "id": "rattata",
         "no": "19",
+        "number": 19,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "小拉達",
@@ -307,6 +326,7 @@
     {
         "id": "raticate",
         "no": "20",
+        "number": 20,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "拉達",
@@ -323,6 +343,7 @@
     {
         "id": "spearow",
         "no": "21",
+        "number": 21,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "列雀",
@@ -339,6 +360,7 @@
     {
         "id": "fearow",
         "no": "22",
+        "number": 22,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "大嘴雀",
@@ -355,6 +377,7 @@
     {
         "id": "ekans",
         "no": "23",
+        "number": 23,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "阿伯蛇",
@@ -371,6 +394,7 @@
     {
         "id": "arbok",
         "no": "24",
+        "number": 24,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "阿伯怪",
@@ -387,6 +411,7 @@
     {
         "id": "pikachu",
         "no": "25",
+        "number": 25,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "皮卡丘",
@@ -403,6 +428,7 @@
     {
         "id": "raichu",
         "no": "26",
+        "number": 26,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "雷丘",
@@ -419,6 +445,7 @@
     {
         "id": "sandshrew",
         "no": "27",
+        "number": 27,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "穿山鼠",
@@ -435,6 +462,7 @@
     {
         "id": "sandslash",
         "no": "28",
+        "number": 28,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "穿山王",
@@ -451,6 +479,7 @@
     {
         "id": "nidoran_f",
         "no": "29",
+        "number": 29,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "尼多蘭",
@@ -467,6 +496,7 @@
     {
         "id": "nidorina",
         "no": "30",
+        "number": 30,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "尼多娜",
@@ -483,6 +513,7 @@
     {
         "id": "nidoqueen",
         "no": "31",
+        "number": 31,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "尼多后",
@@ -499,6 +530,7 @@
     {
         "id": "nidoran_m",
         "no": "32",
+        "number": 32,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "尼多朗",
@@ -515,6 +547,7 @@
     {
         "id": "nidorino",
         "no": "33",
+        "number": 33,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "尼多力諾",
@@ -531,6 +564,7 @@
     {
         "id": "nidoking",
         "no": "34",
+        "number": 34,
         "area": "關都",
         "areaEn": "Kanto",
         "name": "尼多王",
@@ -547,6 +581,7 @@
     {
         "id": "chikorita",
         "no": "152",
+        "number": 152,
         "area": "成都",
         "areaEn": "Johto",
         "name": "菊草葉",
@@ -563,6 +598,7 @@
     {
         "id": "treecko",
         "no": "252",
+        "number": 252,
         "area": "豐緣",
         "areaEn": "Hoenn",
         "name": "木守宮",
@@ -579,6 +615,7 @@
     {
         "id": "turtwig",
         "no": "387",
+        "number": 387,
         "area": "神奧",
         "areaEn": "Sinnoh",
         "name": "草苗龜",
@@ -595,6 +632,7 @@
     {
         "id": "victini",
         "no": "494",
+        "number": 494,
         "area": "合眾",
         "areaEn": "Unova",
         "name": "比克提尼",
@@ -611,6 +649,7 @@
     {
         "id": "chespin",
         "no": "650",
+        "number": 650,
         "area": "卡洛斯",
         "areaEn": "Kalos",
         "name": "哈力栗",
@@ -627,6 +666,7 @@
     {
         "id": "grookey",
         "no": "810",
+        "number": 810,
         "area": "伽勒爾",
         "areaEn": "Galar",
         "name": "敲音猴",
