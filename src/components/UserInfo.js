@@ -6,23 +6,23 @@ import { StoreContext } from "../store"
 
 export default function UserInfo(props) {
 
-   // const { state: { userSignin : { userInfo, remember } } } = useContext(StoreContext);
-   // const history = useHistory();
+   const { state: { userSignIn : { userInfo, remember } } } = useContext(StoreContext);
+   const history = useHistory();
 
-   // const goToProfile = () => {
-   //    history.push("/login?redirect=profile");
-   // };
+   const goToProfile = () => {
+      history.push("/login?redirect=profile");
+   };
 
-   // useEffect(() => {
-   //    if(remember)
-   //       localStorage.setItem("userInfo", JSON.stringify(userInfo));
-   //    else
-   //     localStorage.removeItem("userInfo");
-   // }, [userInfo, remember]);
+   useEffect(() => {
+      if(remember)
+         localStorage.setItem("userInfo", JSON.stringify(userInfo));
+      else
+       localStorage.removeItem("userInfo");
+   }, [userInfo, remember]);
 
    return (
       <>
-         {/* <nav onClick={goToProfile} style={{ ...props.style }} className="header-cart-summary" >
+         <nav onClick={goToProfile} style={{ ...props.style }} className="header-cart-summary" >
             {userInfo
                ? <UserOutlined style={{ fontSize: '28px', color: '#ddd' }} />
                : <UserSwitchOutlined style={{ fontSize: '28px', color: '#ddd' }} />
@@ -34,7 +34,7 @@ export default function UserInfo(props) {
                   : `請登入`
                }
             </p>
-         </nav> */}
+         </nav>
       </>
    );
 }

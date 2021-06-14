@@ -278,6 +278,8 @@ span.hamMenu__bar4--touch {
 .poke__card {
     border-radius: 2rem;
     background-color: #f2f2f2;
+    background-color: rgba(250, 250, 250, 0.2);
+    border: 1px #dadada solid;
     transition: background-color .25s linear;
 }
 

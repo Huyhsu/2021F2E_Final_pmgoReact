@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import Poke from './pages/Poke';
 import PokeBag from './pages/PokeBag';
 import Feed from './pages/Feed'
+import Login from './pages/Login'
+import Register from './pages/Register'
 import { StoreProvider } from './store';
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
                     <Route path="/pokebag" component={ PokeBag } />
                     <Route path="/poke/:pokeId" component={ Poke } />
                     <Route path="/admin/feed-pokes" component={ Feed } />
+                    <Route path="/login" component={ Login } />
+                    <Route path="/register" component={ Register } />
                 </Switch>
             </BrowserRouter>
         </StoreProvider>

@@ -149,6 +149,7 @@ function reducer(state, action) {
       const newBagItems = state.bagItems.splice(removedItemIndex, 1);
       // bagItems = state.bagItems.filter((x) => x.id !== action.payload);
       return { ...state, newBagItems };
+    // FIREBASE LOGIN
     case BEGIN_LOGIN_REQUEST:
       return { ...state, userSignin: { ...state.userSignin, loading: true } };
     case SUCCESS_LOGIN_REQUEST:
