@@ -61,12 +61,12 @@ const RegisterCard = ({ redirect }) => {
     >
       <Form.Item
         name="name"
-        label="Your Name"
-        tooltip="What do you want others to call you?"
+        label="你的暱稱"
+        tooltip="輸入你想要的名字"
         rules={[
           {
             required: true,
-            message: "Please input your name!",
+            message: "請輸入暱稱",
             whitespace: true,
           },
         ]}
@@ -75,15 +75,15 @@ const RegisterCard = ({ redirect }) => {
       </Form.Item>
       <Form.Item
         name="email"
-        label="E-mail"
+        label="電子郵件"
         rules={[
           {
             type: "email",
-            message: "The input is not valid E-mail!",
+            message: "無效的電子郵件!",
           },
           {
             required: true,
-            message: "Please input your E-mail!",
+            message: "請輸入電子信箱",
           },
         ]}
       >
@@ -92,11 +92,11 @@ const RegisterCard = ({ redirect }) => {
 
       <Form.Item
         name="password"
-        label="Password"
+        label="密碼"
         rules={[
           {
             required: true,
-            message: "Please input your password!",
+            message: "請輸入密碼",
           },
         ]}
         hasFeedback
@@ -106,13 +106,13 @@ const RegisterCard = ({ redirect }) => {
 
       <Form.Item
         name="rePassword"
-        label="Re-enter Password"
+        label="確認密碼"
         dependencies={["password"]}
         hasFeedback
         rules={[
           {
             required: true,
-            message: "Please re-enter your password!",
+            message: "請再次輸入密碼",
           },
           ({ getFieldValue }) => ({
             validator(_, value) {
@@ -121,7 +121,7 @@ const RegisterCard = ({ redirect }) => {
               }
 
               return Promise.reject(
-                new Error("The two passwords that you entered do not match!")
+                new Error("密碼不符合!")
               );
             },
           }),
@@ -138,13 +138,13 @@ const RegisterCard = ({ redirect }) => {
             validator: (_, value) =>
               value
                 ? Promise.resolve()
-                : Promise.reject(new Error("Should accept agreement")),
+                : Promise.reject(new Error("必須同意條款")),
           },
         ]}
         {...tailFormItemLayout}
       >
         <Checkbox>
-          I have read the <Link to={"/"}>agreement</Link>
+          我已閱讀並瞭解<Link to={"/"}>服務條款</Link>及<Link to={"/"}>隱私權聲明</Link>。
         </Checkbox>
       </Form.Item>
       <Form.Item {...tailFormItemLayout}>
@@ -155,7 +155,7 @@ const RegisterCard = ({ redirect }) => {
             htmlType="submit"
             loading
           >
-            Create your account
+            註冊帳戶
           </Button>
         ) : (
           <Button
@@ -163,11 +163,11 @@ const RegisterCard = ({ redirect }) => {
             className="login-form__button"
             htmlType="submit"
           >
-            Create your account
+            註冊帳戶
           </Button>
         )}
-         Already have an account?{" "}
-        <Link to={"/login?redirect=shipping"}>Login</Link>
+         已經擁有帳戶?{" "}
+        <Link to={"/login?redirect=shipping"}>登入</Link>
         {error === "" ? (
           <></>
         ) : (

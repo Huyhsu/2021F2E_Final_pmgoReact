@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import PokeList from "../components/PokeList";
 import AppFooter from "../components/Footer";
 import { StoreContext } from "../store";
-import { setPage } from "../actions"
+import { setPage } from "../actions";
 
 const { Header, Content, Footer } = Layout;
 
@@ -17,16 +17,22 @@ function Home() {
   }, []);
   return (
     <Layout className="container layout__main">
-      <Header className="layout__header">
-        <AppHeader />
-      </Header>
-      <NavBar />
-      <Content className="layout__content">
-        <PokeList />
-      </Content>
-      <Footer className="layout__footer">
-        <AppFooter />
-      </Footer>
+      <Layout>
+        <Header className="layout__header">
+          <AppHeader />
+        </Header>
+        <NavBar />
+      </Layout>
+      <Layout>
+        <Content className="layout__content">
+          <PokeList />
+        </Content>
+      </Layout>
+      <Layout>
+        <Footer className="layout__footer">
+          <AppFooter />
+        </Footer>
+      </Layout>
     </Layout>
   );
 }

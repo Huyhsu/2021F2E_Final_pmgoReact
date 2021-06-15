@@ -75,6 +75,11 @@ const initialState = {
     remember: true,
     error: "",
   },
+  userRegister: {
+    loading: false,
+    userInfo: null,
+    error: "",
+  },
 };
 
 function reducer(state, action) {
@@ -167,6 +172,73 @@ function reducer(state, action) {
         ...state,
         userSignin: {
           ...state.userSignin,
+          loading: false,
+          userInfo: null,
+          error: action.payload,
+        },
+      };
+    case BEGIN_UPDATE_USERINFO:
+      return { ...state, userSignin: { ...state.userSignin, loading: true } };
+    case SUCCESS_UPDATE_USERINFO:
+      return {
+        ...state,
+        userSignin: {
+          ...state.userSignin,
+          loading: false,
+          userInfo: action.payload,
+          error: "",
+        },
+      };
+    case FAIL_UPDATE_USERINFO:
+      return {
+        ...state,
+        userSignin: {
+          ...state.userSignin,
+          loading: false,
+          error: action.payload,
+        },
+      };
+    case LOGOUT_REQUEST:
+      bagItems = [];
+      return {
+        ...state,
+        userSignin: {
+          ...state.userSignin,
+          userInfo: null,
+        },
+      };
+    case REMEMBER_LOGIN:
+      return {
+        ...state,
+        userSignin: {
+          ...state.userSignin,
+          remember: action.payload,
+        },
+      };
+    case BEGIN_REGISTER_REQUEST:
+      return {
+        ...state,
+        userRegister: { ...state.userRegister, loading: true },
+      };
+    case SUCCESS_REGISTER_REQUEST:
+      return {
+        ...state,
+        userRegister: {
+          ...state.userRegister,
+          loading: false,
+          userInfo: action.payload,
+          error: "",
+        },
+        userSignin: {
+          ...state.userSignin,
+          userInfo: action.payload,
+        },
+      };
+    case FAIL_REGISTER_REQUEST:
+      return {
+        ...state,
+        userRegister: {
+          ...state.userRegister,
           loading: false,
           userInfo: null,
           error: action.payload,

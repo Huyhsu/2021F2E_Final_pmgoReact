@@ -2,6 +2,7 @@ import { Layout } from "antd";
 import * as QueryString from "query-string";
 
 import AppHeader from "../components/Header";
+import NavBar from "../components/NavBar";
 import AppFooter from "../components/Footer";
 import LoginCard from "../components/LoginCard";
 
@@ -10,18 +11,17 @@ const { Header, Content, Footer } = Layout;
 function Login(props) {
   const { redirect } = QueryString.parse(props.location.search);
   return (
-    <Layout className="container main-layout">
-      <Layout className="bg-gray main-area">
-        <Header className="layout-header">
-          <AppHeader title="Login Page" />
+    <Layout className="container layout__main">
+        <Header className="layout__header">
+          <AppHeader />
         </Header>
-        <Content className="layout-content">
+        <NavBar />
+        <Content className="layout__content">
           <LoginCard redirect={redirect} />
         </Content>
-        <Footer className="layout-footer">
+        <Footer className="layout__footer">
           <AppFooter />
         </Footer>
-      </Layout>
     </Layout>
   );
 }

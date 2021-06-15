@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Form, Input, Button, Checkbox } from 'antd';
 import { WarningOutlined, MailOutlined, LockOutlined } from '@ant-design/icons';
+import { BallIcon } from "./Icons";
 import { checkLogin, loginToFirebase, rememberLoginUser } from '../actions'
 import { StoreContext } from "../store"
 
@@ -33,23 +34,28 @@ const LoginCard = ({ redirect }) => {
       }}
       onFinish={onFinish}
     >
+      <div className="login-form-title-wrap">
+        <BallIcon size={32}/>
+        <div className="login-form-title">登入帳戶</div>
+      </div>
+      
       <Form.Item
         name="email"
         rules={[
           {
             type: "email",
-            message: "The input is not valid E-mail!",
+            message: "無效的電子郵件!",
           },
           {
             required: true,
-            message: "Please input your E-mail!",
+            message: "請輸入電子郵件",
           },
         ]}
         hasFeedback
       >
         <Input
           prefix={<MailOutlined className="site-form-item-icon" />}
-          placeholder="E-Mail"
+          placeholder="電子郵件"
         />
       </Form.Item>
       <Form.Item
@@ -57,7 +63,7 @@ const LoginCard = ({ redirect }) => {
         rules={[
           {
             required: true,
-            message: "Please input your Password!",
+            message: "請輸入密碼",
           },
         ]}
         hasFeedback
@@ -65,7 +71,7 @@ const LoginCard = ({ redirect }) => {
         <Input.Password
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
-          placeholder="Password"
+          placeholder="密碼"
         />
       </Form.Item>
       <Form.Item>
@@ -73,11 +79,11 @@ const LoginCard = ({ redirect }) => {
           name="remember"
           noStyle
         >
-          <Checkbox onChange={onChange} checked={remember}>Remember me</Checkbox>
+          <Checkbox className="login-text" onChange={onChange} checked={remember}>記住密碼</Checkbox>
         </Form.Item>
 
         <Link className="login-form__forgot" to={"/"}>
-          Forgot password
+          忘記密碼?
         </Link>
       </Form.Item>
 
@@ -89,7 +95,7 @@ const LoginCard = ({ redirect }) => {
             className="login-form__button"
             loading
           >
-            Log in
+            登入
           </Button>
         ) : (
           <Button
@@ -97,10 +103,10 @@ const LoginCard = ({ redirect }) => {
             htmlType="submit"
             className="login-form__button"
           >
-            Log in
+            登入
           </Button>
         )}
-        Or <Link to={"/register?redirect=shipping"}>register now!</Link>
+        或是 <Link to={"/register?redirect=shipping"}>註冊</Link>
         {error === "" ? (
           <></>
         ) : (

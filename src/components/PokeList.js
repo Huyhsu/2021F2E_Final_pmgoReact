@@ -18,13 +18,13 @@ export default function PokeList() {
           <Spin indicator={antIcon} className="spinner" />
         </div>
       ) : (
-        <Row gutter={[32, 32]}>
+        <Row gutter={[24, 24]}>
           {pokes.map((poke) => (
             <Col
               key={poke.id}
-              sm={{ span: 12 }}
-              lg={{ span: 8 }}
-              xl={{ span: 6 }}
+              sm={{ span: 8 }}
+              lg={{ span: 6 }}
+              xl={{ span: 4 }}
               xxl={{ span: 4 }}
             >
               <PokeItem poke={poke} />
