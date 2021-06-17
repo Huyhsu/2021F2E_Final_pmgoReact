@@ -79,7 +79,7 @@ const RegisterCard = ({ redirect }) => {
         rules={[
           {
             type: "email",
-            message: "無效的電子郵件!",
+            message: "無效的電子郵件地址!",
           },
           {
             required: true,
@@ -167,7 +167,7 @@ const RegisterCard = ({ redirect }) => {
           </Button>
         )}
          已經擁有帳戶?{" "}
-        <Link to={"/login?redirect=shipping"}>登入</Link>
+        <Link to={"/login?redirect=profile"}>登入</Link>
         {error === "" ? (
           <></>
         ) : (

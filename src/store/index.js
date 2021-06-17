@@ -156,12 +156,12 @@ function reducer(state, action) {
       return { ...state, newBagItems };
     // FIREBASE LOGIN
     case BEGIN_LOGIN_REQUEST:
-      return { ...state, userSignin: { ...state.userSignin, loading: true } };
+      return { ...state, userSignIn: { ...state.userSignIn, loading: true } };
     case SUCCESS_LOGIN_REQUEST:
       return {
         ...state,
-        userSignin: {
-          ...state.userSignin,
+        userSignIn: {
+          ...state.userSignIn,
           loading: false,
           userInfo: action.payload,
           error: "",
@@ -170,20 +170,20 @@ function reducer(state, action) {
     case FAIL_LOGIN_REQUEST:
       return {
         ...state,
-        userSignin: {
-          ...state.userSignin,
+        userSignIn: {
+          ...state.userSignIn,
           loading: false,
           userInfo: null,
           error: action.payload,
         },
       };
     case BEGIN_UPDATE_USERINFO:
-      return { ...state, userSignin: { ...state.userSignin, loading: true } };
+      return { ...state, userSignIn: { ...state.userSignIn, loading: true } };
     case SUCCESS_UPDATE_USERINFO:
       return {
         ...state,
-        userSignin: {
-          ...state.userSignin,
+        userSignIn: {
+          ...state.userSignIn,
           loading: false,
           userInfo: action.payload,
           error: "",
@@ -192,8 +192,8 @@ function reducer(state, action) {
     case FAIL_UPDATE_USERINFO:
       return {
         ...state,
-        userSignin: {
-          ...state.userSignin,
+        userSignIn: {
+          ...state.userSignIn,
           loading: false,
           error: action.payload,
         },
@@ -202,16 +202,16 @@ function reducer(state, action) {
       bagItems = [];
       return {
         ...state,
-        userSignin: {
-          ...state.userSignin,
+        userSignIn: {
+          ...state.userSignIn,
           userInfo: null,
         },
       };
     case REMEMBER_LOGIN:
       return {
         ...state,
-        userSignin: {
-          ...state.userSignin,
+        userSignIn: {
+          ...state.userSignIn,
           remember: action.payload,
         },
       };
@@ -229,8 +229,8 @@ function reducer(state, action) {
           userInfo: action.payload,
           error: "",
         },
-        userSignin: {
-          ...state.userSignin,
+        userSignIn: {
+          ...state.userSignIn,
           userInfo: action.payload,
         },
       };

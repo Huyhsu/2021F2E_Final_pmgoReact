@@ -106,7 +106,7 @@ const LoginCard = ({ redirect }) => {
             登入
           </Button>
         )}
-        或是 <Link to={"/register?redirect=shipping"}>註冊</Link>
+        或是 <Link to={"/register?redirect=profile"}>註冊</Link>
         {error === "" ? (
           <></>
         ) : (
