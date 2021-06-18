@@ -27,7 +27,7 @@ function Home() {
       <Layout>
         <Content className="layout__content">
           <SortBar />
-          {/* <PokeList /> */}
+          <PokeList />
         </Content>
       </Layout>
       <Layout>

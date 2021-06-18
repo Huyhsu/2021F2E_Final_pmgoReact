@@ -73,13 +73,13 @@ export default function NavBar() {
         {/* <NavItem to="/pokes/galar" className="nav__item" activeClassName="nav__item--active">
           伽勒爾
         </NavItem> */}
-        {/* <NavItem
+        <NavItem
           to="/admin/feed-pokes"
           className="nav__item"
           activeClassName="nav__item--active"
         >
           FEED
-        </NavItem> */}
+        </NavItem>
       </div>
       <Drawer
         title=" "

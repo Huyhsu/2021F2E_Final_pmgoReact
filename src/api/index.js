@@ -48,6 +48,19 @@ export const getPokes = async (url) => {
   });
   return jsonPokes;
 }
+// ///////////////////////////////////////////////Sortttttttttttttttt
+// querySnapshot = await allPokesCollectionRef.where("types", "array-contains-any",["火",""]).orderBy("number").get();
+
+
+
+
+
+
+
+
+
+
+
 
 export const feedPokes = () => {
   pokes.forEach((poke) => {

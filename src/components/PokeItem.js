@@ -16,7 +16,7 @@ export default function PokeItem({ poke }) {
       >
         <img
           className="pokeCard__img"
-          style={{ width: "80%" }}
+          style={{ width: "100%" }}
           src={poke.image}
           alt={poke.name}
         />

@@ -73,6 +73,8 @@ body {
 .layout__content {
   min-height: 100vh;
   padding: 2rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
   /* position: relative; */
   background-color: #e7f0e1;
   /* margin-top: 2rem; */
@@ -679,22 +681,27 @@ span.hamMenu__bar4--touch {
 }
 
 /* Sort Bar */
-.sortBar__btn {
-  height: 5rem;
-  width: 8rem;
-  height: auto;
-  min-width: 4rem;
-  color: #000;
-  font-size: 1.6rem;
-  /* line-height: 5rem; */
-  text-align: center;
-  background-color: lightblue;;
-}
-
 .sortBar__wrap {
   /* width: 70%;
   margin-left: 15%;
   display: flex;
   align-items: center;
   justify-content: center; */
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.sortBar__btn {
+  width: 8rem;
+  height: auto;
+  min-width: 4rem;
+  color: #fff;
+  font-size: 1.6rem;
+  text-align: center;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.sortBar__btn--active {
+  color: #4d7072;
 }
