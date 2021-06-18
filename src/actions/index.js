@@ -22,6 +22,7 @@ import {
   BEGIN_UPDATE_USERINFO,
   SUCCESS_UPDATE_USERINFO,
   FAIL_UPDATE_USERINFO,
+  SET_SORTBAR_ACTIVETYPE,
 } from "../utils/constants";
 
 import {
@@ -34,6 +35,7 @@ import {
   updateUserInfoApi,
   checkLoginApi,
   
+  sortPokesByType,
 } from "../api";
 
 // FEED JSON TO FIREBASE
@@ -114,6 +116,66 @@ export const setPokeShiny = async (dispatch, shiny) => {
     payload: shiny,
   });
 };
+
+// Sort Pokes By types
+// export const sortPokes = async (dispatch, ) => {
+// 	let pokes = [];
+// 	dispatch({ type: BEGIN_POKES_REQUEST })
+// 	try {
+// 		pokes = await sortPokesByType(url);
+// 		dispatch({
+// 			type: SET_PAGE_CONTENT,
+// 			payload: pokes,
+// 		});
+// 		dispatch({
+//     	type: SET_NAVBAR_ACTIVEITEM,
+//     	payload: url,
+//   	});
+// 		dispatch({ type: SUCCESS_POKES_REQUEST });
+// 	}catch (error) {
+// 		console.log(error);
+// 		dispatch({ type: FAIL_POKES_REQUEST, payload: error, });
+// 	}
+// }
+
+// Set Active Type
+export const setActiveType = async (dispatch, activeTypes, type) => {
+  dispatch({ type: BEGIN_POKES_REQUEST })
+  if (activeTypes.includes(type)) {
+    const index = activeTypes.indexOf(type)
+    console.log("Include this Type")
+    if (index > -1) {
+      console.log("Remove from Array")
+      activeTypes.splice(index,1)
+    }
+    dispatch({
+      type: SET_SORTBAR_ACTIVETYPE,
+      payload: activeTypes,
+    })
+  }else {
+    console.log("Add to Array")
+    activeTypes.push(type)
+    dispatch({
+      type: SET_SORTBAR_ACTIVETYPE,
+      payload: activeTypes,
+    })
+  }
+  let pokes = [];
+  if (activeTypes.length > 0) {
+    pokes = await sortPokesByType(activeTypes);
+    dispatch({
+      type: SET_PAGE_CONTENT,
+      payload: pokes,
+    });    
+  }
+
+  dispatch({ type: SUCCESS_POKES_REQUEST });
+}
+
+
+
+
+
 
 // SET PAGE CONTENT
 export const setPage = async (dispatch, url) => {

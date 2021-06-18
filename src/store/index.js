@@ -25,6 +25,8 @@ import {
   BEGIN_UPDATE_USERINFO,
   SUCCESS_UPDATE_USERINFO,
   FAIL_UPDATE_USERINFO,
+
+  SET_SORTBAR_ACTIVETYPE,
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -50,6 +52,9 @@ const initialState = {
   },
   navBar: {
     activeItem: "/",
+  },
+  sortBar: {
+    activeTypes: [],
   },
   pokeDetail: {
     poke: {},
@@ -98,6 +103,13 @@ function reducer(state, action) {
           activeItem: action.payload,
         },
       };
+    case SET_SORTBAR_ACTIVETYPE:
+      return {
+        ...state,
+        sortBar: {
+          activeTypes: action.payload,
+        },
+      }
     // ??????????????????????????????why ...state.pokeDetail , ...action~
     case SET_POKE_DETAIL:
       return {

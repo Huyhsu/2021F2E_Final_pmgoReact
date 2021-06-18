@@ -29,6 +29,16 @@ export const BEGIN_POKES_REQUEST = "BEGIN_POKES_REQUEST";
 export const SUCCESS_POKES_REQUEST = "SUCCESS_POKES_REQUEST";
 export const FAIL_POKES_REQUEST = "FAIL_POKES_REQUEST";
 
+// SORT BAR
+export const SET_SORTBAR_ACTIVETYPE = "SET_SORTBAR_ACTIVETYPE";
+
+
+
+
+
+
+
+
 
 
 // ========================

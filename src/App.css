@@ -702,6 +702,6 @@ span.hamMenu__bar4--touch {
   cursor: pointer;
 }
 
-.sortBar__btn--active {
-  color: #4d7072;
+.sortBar__btn--inactive {
+  opacity: 0.3;
 }
