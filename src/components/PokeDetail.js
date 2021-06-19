@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Row, Col, Select, Spin } from "antd";
 import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingIcon } from "../components/Icons";
 import { StoreContext } from "../store";
 import { setPokeDetail, setPokeShiny } from "../actions";
 import AddToBag from "./AddToBag";
@@ -12,11 +13,14 @@ function PokeDetail() {
   const antIcon = (
     <LoadingOutlined style={{ fontSize: 80, color: "#4d7072" }} spin />
   );
+  const spinnerIcon = (
+    <LoadingIcon style={{ fontSize: 80, color: "#4d7072" }} spin />
+  );
   return (
-    <>
+    <div className="pokeDetail__wrap">
       {loading ? (
         <div className="spinner__wrap">
-          <Spin indicator={antIcon} className="spinner" />
+          <Spin indicator={spinnerIcon} className="spinner" />
         </div>
       ) : (
         <>
@@ -25,7 +29,7 @@ function PokeDetail() {
               <img className="poke__image" alt="" src={poke.image} />
             </Col>
             <Col lg={{ span: 12 }}>
-              <div className="pokeDetail__wrap">
+              <div className="">
                 <h1 className="pokeDetail__name">{poke.name}</h1>
                 <h2 className="pokeDetail__category">{poke.category}</h2>
                 <div className="pokeDetail__type-wrap">
@@ -79,7 +83,7 @@ function PokeDetail() {
           </Row>
         </>
       )}
-    </>
+    </div>
   );
 }
 

@@ -83,7 +83,7 @@ export default function NavBar() {
       </div>
       <Drawer
         title=" "
-        placement={"top"}
+        placement={"left"}
         closable={false}
         onClose={handleCloseDrawer}
         visible={isOnTouch}

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../store";
-import { setPage } from "../actions";
+import { setPage, resetSortBar } from "../actions";
 
 export default function NavItem(props) {
   const { children, to, className, activeClassName, onClose } = props;
@@ -10,6 +10,7 @@ export default function NavItem(props) {
   const onClick = () => {
     setPage(dispatch, to);
     onClose && onClose();
+    resetSortBar(dispatch, []);
   };
 
   return (

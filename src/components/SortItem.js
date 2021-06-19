@@ -8,23 +8,8 @@ export default function SortItem(props) {
   const { state, dispatch } = useContext(StoreContext);
 
   const onClick = () => {
-    // setPage(dispatch, to);
-    // onClose && onClose();
-		
-		// if (state.sortBar.activeTypes.includes(type)) {
-		// 	const index = state.sortBar.activeTypes.indexOf(type)
-		// 	console.log("include this type")
-		// 	if (index > -1) {
-		// 		console.log("Remove from Array")
-		// 		state.sortBar.activeTypes.splice(index,1)
-		// 	}
-		// }else {
-		// 	console.log("Add to Array")
-		// 	state.sortBar.activeTypes.push(type)
-		// }
-
-		setActiveType(dispatch, state.sortBar.activeTypes, type)
-
+		const url = window.location.pathname;
+		setActiveType(dispatch, state.sortBar.activeTypes, type, url)
   };
 
   return (

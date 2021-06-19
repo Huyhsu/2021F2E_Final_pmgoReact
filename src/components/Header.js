@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { StoreContext } from "../store";
 import BagSummary from "./BagSummary";
 import UserInfo from "./UserInfo";
-import { setPage } from "../actions";
+import { setPage, resetSortBar } from "../actions";
 
 export default function Header() {
     const { dispatch } = useContext(StoreContext);
@@ -12,6 +12,7 @@ export default function Header() {
     const onClickHeader = () => {
         setPage(dispatch, "/");
         history.push("/");
+        resetSortBar(dispatch, []);
     };
 
     return(

@@ -3,19 +3,23 @@ import { Row, Col, Spin } from "antd";
 import PokeItem from "./PokeItem";
 import { LoadingOutlined, ReloadOutlined} from "@ant-design/icons";
 import { StoreContext } from "../store";
-import { UserIcon } from "./Icons";
+import { LoadingIcon } from "./Icons";
 // requestPokes: { loading }
 export default function PokeList() {
   const {state: { page: { pokes }, requestPokes: { loading },},} = useContext(StoreContext);
   const antIcon = (
     <LoadingOutlined style={{ fontSize: 80, color: "#4d7072" }} spin />
   );
-  // const mySpinner = props => <Icon component={ UserIcon } {...props} spin/>
+  // const spinnerIcon = props => <Icon component={ UserIcon } {...props} spin/>
+  const spinnerIcon = (
+    <LoadingIcon style={{ fontSize: 80, color: "#4d7072" }} spin />
+  );
+
   return (
     <>
       {loading ? (
         <div className="spinner__wrap">
-          <Spin indicator={antIcon} className="spinner" />
+          <Spin indicator={spinnerIcon} className="spinner" />
         </div>
       ) : (
         <Row gutter={[24, 24]}>

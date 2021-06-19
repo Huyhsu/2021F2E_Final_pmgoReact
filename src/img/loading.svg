@@ -1,0 +1,17 @@
+<svg version="1.1" id="ball" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="128px" height="128px" viewBox="368 368 128 128" enable-background="new 368 368 128 128" xml:space="preserve">
+<animateTransform  fill="remove" type="rotate" restart="always" calcMode="paced" additive="replace" accumulate="none" repeatCount="indefinite" dur="2s" to="0 0 0" from="-360 0 0" attributeName="transform" attributeType="xml">
+	</animateTransform>
+<g>
+	<circle cx="432" cy="432" r="59.718"/>
+	<g>
+		<path fill="#FFFFFF" d="M453.714,436.445c-2.059,10.107-10.998,17.715-21.714,17.715s-19.655-7.607-21.714-17.715h-30.798
+			C381.746,463.47,404.392,484.7,432,484.7c27.608,0,50.255-21.23,52.512-48.255H453.714z"/>
+		<path fill="#FFFFFF" d="M432,416.494c-8.563,0-15.506,6.942-15.506,15.506c0,8.564,6.942,15.506,15.506,15.506
+			c8.564,0,15.506-6.942,15.506-15.506C447.506,423.436,440.564,416.494,432,416.494z M432,439.649c-4.225,0-7.65-3.425-7.65-7.649
+			c0-4.225,3.425-7.65,7.65-7.65c4.225,0,7.65,3.425,7.65,7.65C439.65,436.225,436.225,439.649,432,439.649z"/>
+	</g>
+	<path fill="#ED1C24" d="M432,409.84c10.716,0,19.655,7.606,21.714,17.715h30.798C482.255,400.53,459.608,379.3,432,379.3
+		c-27.608,0-50.254,21.23-52.512,48.255h30.798C412.345,417.446,421.284,409.84,432,409.84z"/>
+</g>
+</svg>

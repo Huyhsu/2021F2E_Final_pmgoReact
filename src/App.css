@@ -394,7 +394,7 @@ span.hamMenu__bar4--touch {
 
 /* PokeDetail-component */
 .pokeDetail__wrap {
-  margin-top: 2rem;
+  padding-top: 4rem;
 }
 
 .pokeDetail__name {
@@ -689,6 +689,10 @@ span.hamMenu__bar4--touch {
   justify-content: center; */
   padding-top: 1rem;
   padding-bottom: 3rem;
+}
+
+.sortBar__wrap--hide {
+  display: none;
 }
 
 .sortBar__btn {

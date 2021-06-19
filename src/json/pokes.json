@@ -107,5 +107,23 @@
         "category": "火焰寶可夢",
         "about": "會在空中四處飛翔尋找強大的對手。在面對比自己弱小的對手時，牠不會吐出那可熔化一切的高溫火焰。",
         "countInStock": 9
+    },
+    {
+        "id": "turtwig",
+        "no": "387",
+        "number": 387,
+        "area": "神奧",
+        "areaEn": "Sinnoh",
+        "name": "草苗龜",
+        "type1": "草",
+        "type1__class": "grassType",
+        "type2": "",
+        "type2__class": "noneType",
+        "types": ["草"],
+        "image": "/images/pokemon387.png",
+        "shinyimage": "/images/pokemon387_shiny.png",
+        "category": "嫩葉寶可夢",
+        "about": "用全身進行光合作用，製造氧氣。當口渴的時候，頭上的葉子就會枯萎。",
+        "countInStock": 9
     }
 ]

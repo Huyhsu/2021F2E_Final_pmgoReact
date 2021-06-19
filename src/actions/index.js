@@ -23,6 +23,9 @@ import {
   SUCCESS_UPDATE_USERINFO,
   FAIL_UPDATE_USERINFO,
   SET_SORTBAR_ACTIVETYPE,
+  BEGIN_SORTBAR_REQUEST,
+  SUCCESS_SORTBAR_REQUEST,
+  RESET_SORTBAR_ACTIVETYPE,
 } from "../utils/constants";
 
 import {
@@ -139,7 +142,7 @@ export const setPokeShiny = async (dispatch, shiny) => {
 // }
 
 // Set Active Type
-export const setActiveType = async (dispatch, activeTypes, type) => {
+export const setActiveType = async (dispatch, activeTypes, type, url) => {
   dispatch({ type: BEGIN_POKES_REQUEST })
   if (activeTypes.includes(type)) {
     const index = activeTypes.indexOf(type)
@@ -162,14 +165,34 @@ export const setActiveType = async (dispatch, activeTypes, type) => {
   }
   let pokes = [];
   if (activeTypes.length > 0) {
-    pokes = await sortPokesByType(activeTypes);
+    pokes = await sortPokesByType(activeTypes, url);
     dispatch({
       type: SET_PAGE_CONTENT,
       payload: pokes,
-    });    
+    });
+  } else {
+    dispatch({ type: BEGIN_POKES_REQUEST });
+    try {
+      pokes = await getPokes(url);
+      dispatch({
+        type: SET_PAGE_CONTENT,
+        payload: pokes,
+      });
+      dispatch({ type: SUCCESS_POKES_REQUEST });
+    } catch (error) {
+      console.log(error);
+      dispatch({ type: FAIL_POKES_REQUEST, payload: error });
+    }
   }
 
   dispatch({ type: SUCCESS_POKES_REQUEST });
+}
+
+export const resetSortBar = async (dispatch, activeTypes) => {
+  dispatch({
+    type: RESET_SORTBAR_ACTIVETYPE,
+    payload: activeTypes,
+  })
 }
 
 
@@ -181,6 +204,7 @@ export const setActiveType = async (dispatch, activeTypes, type) => {
 export const setPage = async (dispatch, url) => {
 	let pokes = [];
 	dispatch({ type: BEGIN_POKES_REQUEST })
+	dispatch({ type: BEGIN_SORTBAR_REQUEST })
 	try {
 		pokes = await getPokes(url);
 		dispatch({
@@ -192,6 +216,7 @@ export const setPage = async (dispatch, url) => {
     	payload: url,
   	});
 		dispatch({ type: SUCCESS_POKES_REQUEST });
+    dispatch({ type: SUCCESS_SORTBAR_REQUEST });
 	}catch (error) {
 		console.log(error);
 		dispatch({ type: FAIL_POKES_REQUEST, payload: error, });

@@ -26,11 +26,16 @@ const allOrdersCollectionRef = firebase.firestore().collection("allOrders");
 //REFERENCE AUTH
 const auth = firebase.auth();
 
-export const sortPokesByType = async (activeTypes) => {
+export const sortPokesByType = async (activeTypes, url) => {
+  const collection = jsonInfo.find(element => element.url === url);
+  const collectionName = collection.name || "allPokes";
   let jsonPokes = [];
-  // QUERY POKEMONS WITH TYPES
+  // QUERY POKEMONS
   let querySnapshot;
-  querySnapshot = await allPokesCollectionRef.where("types", "array-contains-any",activeTypes).orderBy("number").get();
+  if (collectionName === "allPokes")
+    querySnapshot = await allPokesCollectionRef.where("types", "array-contains-any",activeTypes).orderBy("number").get();
+  else
+    querySnapshot = await allPokesCollectionRef.where("areaEn", "==", collectionName).where("types", "array-contains-any",activeTypes).orderBy("number", "asc").get();
   querySnapshot.forEach((doc) => {
     jsonPokes.push(doc.data());
   });
