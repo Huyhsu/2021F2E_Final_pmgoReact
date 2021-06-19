@@ -22,6 +22,10 @@ const pokesCollectionRef = firebase.firestore().collection("pokes");
 const pokesDocRef = pokesCollectionRef.doc("json");
 const allPokesCollectionRef = pokesDocRef.collection("allPokes");
 const allOrdersCollectionRef = firebase.firestore().collection("allOrders");
+// REFERENCE COMMENTS
+const commentsCollectionRef = firebase.firestore().collection("comments");
+const commentsDocRef = commentsCollectionRef.doc("json");
+const allCommmentsCollectionRef = commentsDocRef.collection("allComments");
 
 //REFERENCE AUTH
 const auth = firebase.auth();
@@ -64,9 +68,18 @@ export const getPokes = async (url) => {
   });
   return jsonPokes;
 }
-// ///////////////////////////////////////////////Sortttttttttttttttt
-// querySnapshot = await allPokesCollectionRef.where("types", "array-contains-any",["火",""]).orderBy("number").get();
 
+
+
+
+export const sendCommmentWithUserInfo = async (pokeId, displayName, comment) => {
+  const docRef = allCommmentsCollectionRef.collection(pokeId)
+  docRef.add({
+    senderName: displayName,
+    comment: comment,
+    timeStamp: Date.now(),
+  })
+}
 
 
 
@@ -89,6 +102,9 @@ export const feedPokes = () => {
       ...poke,
       // user,
       // f_id
+    });
+    const docRefCom = allCommmentsCollectionRef.doc(poke.id)
+    docRefCom.set({
     });
   })
 }

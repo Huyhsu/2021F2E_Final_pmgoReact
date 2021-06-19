@@ -394,7 +394,7 @@ span.hamMenu__bar4--touch {
 
 /* PokeDetail-component */
 .pokeDetail__wrap {
-  padding-top: 4rem;
+  padding: 4rem;
 }
 
 .pokeDetail__name {

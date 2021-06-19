@@ -1,21 +1,19 @@
 import { useContext } from "react";
-import { Row, Col, Select, Spin } from "antd";
-import { LoadingOutlined } from '@ant-design/icons';
+import { Row, Col, Select, Spin, Input } from "antd";
 import { LoadingIcon } from "../components/Icons";
 import { StoreContext } from "../store";
 import { setPokeDetail, setPokeShiny } from "../actions";
 import AddToBag from "./AddToBag";
 
 const { Option } = Select;
+const { TextArea } = Input;
 
 function PokeDetail() {
   const { state: { pokeDetail: { poke, qty },pokeIsShiny: { shiny }, requestPokes: { loading } },dispatch,} = useContext(StoreContext);
-  const antIcon = (
-    <LoadingOutlined style={{ fontSize: 80, color: "#4d7072" }} spin />
-  );
   const spinnerIcon = (
     <LoadingIcon style={{ fontSize: 80, color: "#4d7072" }} spin />
   );
+
   return (
     <div className="pokeDetail__wrap">
       {loading ? (
@@ -79,6 +77,21 @@ function PokeDetail() {
                 </div>
                 <AddToBag />
               </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col
+              xs={{ span: 18 }}
+              sm={{ span: 18 }}
+              md={{ span: 20 }}
+              lg={{ span: 20 }}
+              xl={{ span: 20 }}
+              xxl={{ span: 20 }}
+            >
+              <TextArea
+                placeholder="Autosize height with minimum and maximum number of lines"
+                autoSize={{ minRows: 2, maxRows: 6 }}
+              />
             </Col>
           </Row>
         </>

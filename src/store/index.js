@@ -1,6 +1,5 @@
 import { createContext } from "react";
 import useReducerWithThunk from "use-reducer-thunk";
-import pokes from "../json/pokes.json";
 import {
   SET_PAGE_CONTENT,
   SET_NAVBAR_ACTIVEITEM,

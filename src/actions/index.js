@@ -26,6 +26,7 @@ import {
   BEGIN_SORTBAR_REQUEST,
   SUCCESS_SORTBAR_REQUEST,
   RESET_SORTBAR_ACTIVETYPE,
+  SEND_COMMENT,
 } from "../utils/constants";
 
 import {
@@ -120,35 +121,14 @@ export const setPokeShiny = async (dispatch, shiny) => {
   });
 };
 
-// Sort Pokes By types
-// export const sortPokes = async (dispatch, ) => {
-// 	let pokes = [];
-// 	dispatch({ type: BEGIN_POKES_REQUEST })
-// 	try {
-// 		pokes = await sortPokesByType(url);
-// 		dispatch({
-// 			type: SET_PAGE_CONTENT,
-// 			payload: pokes,
-// 		});
-// 		dispatch({
-//     	type: SET_NAVBAR_ACTIVEITEM,
-//     	payload: url,
-//   	});
-// 		dispatch({ type: SUCCESS_POKES_REQUEST });
-// 	}catch (error) {
-// 		console.log(error);
-// 		dispatch({ type: FAIL_POKES_REQUEST, payload: error, });
-// 	}
-// }
-
 // Set Active Type
 export const setActiveType = async (dispatch, activeTypes, type, url) => {
   dispatch({ type: BEGIN_POKES_REQUEST })
   if (activeTypes.includes(type)) {
     const index = activeTypes.indexOf(type)
-    console.log("Include this Type")
+    // console.log("Include this Type")
     if (index > -1) {
-      console.log("Remove from Array")
+      // console.log("Remove from Array")
       activeTypes.splice(index,1)
     }
     dispatch({
@@ -156,7 +136,7 @@ export const setActiveType = async (dispatch, activeTypes, type, url) => {
       payload: activeTypes,
     })
   }else {
-    console.log("Add to Array")
+    // console.log("Add to Array")
     activeTypes.push(type)
     dispatch({
       type: SET_SORTBAR_ACTIVETYPE,
@@ -194,10 +174,6 @@ export const resetSortBar = async (dispatch, activeTypes) => {
     payload: activeTypes,
   })
 }
-
-
-
-
 
 
 // SET PAGE CONTENT
@@ -303,4 +279,10 @@ export const checkLogin = (dispatch) => {
     dispatch({ type: LOGOUT_REQUEST });    
   }
   return isLogin;
+}
+
+
+
+export const sendComments = async (dispatch) => {
+  
 }
