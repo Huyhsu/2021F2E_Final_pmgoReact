@@ -1,18 +1,40 @@
-import { useContext } from "react";
-import { Row, Col, Select, Spin, Input } from "antd";
+import { useContext, useState } from "react";
+import { Row, Col, Select, Spin, Input, Form } from "antd";
+import { UserOutlined } from '@ant-design/icons';
 import { LoadingIcon } from "../components/Icons";
 import { StoreContext } from "../store";
-import { setPokeDetail, setPokeShiny } from "../actions";
+import { setPokeDetail, setPokeShiny, sendComment } from "../actions";
 import AddToBag from "./AddToBag";
 
 const { Option } = Select;
 const { TextArea } = Input;
 
 function PokeDetail() {
-  const { state: { pokeDetail: { poke, qty },pokeIsShiny: { shiny }, requestPokes: { loading } },dispatch,} = useContext(StoreContext);
+  const { state: { pokeDetail: { poke, qty },pokeIsShiny: { shiny }, requestPokes: { loading }, userSignIn: { userInfo } },dispatch,} = useContext(StoreContext);
   const spinnerIcon = (
     <LoadingIcon style={{ fontSize: 80, color: "#4d7072" }} spin />
   );
+
+  // const handleChange = (event) => {
+  //   this.setState({ value: event.target.value });
+  // };
+
+  // const handleSubmit = (event) => {
+  //   alert('A name was submitted: ' + this.state.value);
+  //   event.preventDefault();
+  // }
+  const [commentText,setCommentText] = useState("")
+
+  const handleOnSubmit = event => {
+    event.preventDefault();
+    console.log(commentText);
+    if (commentText != "")
+      sendComment(dispatch, poke.id, userInfo.name, commentText);
+    setCommentText("");
+  }
+
+  // const [form] = Form.useForm();
+
 
   return (
     <div className="pokeDetail__wrap">
@@ -88,10 +110,46 @@ function PokeDetail() {
               xl={{ span: 20 }}
               xxl={{ span: 20 }}
             >
-              <TextArea
-                placeholder="Autosize height with minimum and maximum number of lines"
+              {/* //////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* <TextArea
+                placeholder="輸入留言"
                 autoSize={{ minRows: 2, maxRows: 6 }}
-              />
+                value={this.value}
+              /> */}
+              {/* <form id="myForm" onSubmit={handleOnSubmit}>
+                <div>
+                  <label htmlFor="CommentsOrAdditionalInformation">
+                    Comments or Additional Information
+                  </label>
+                  // You can self-close the textarea tag
+                  <textarea
+                    name="commentTextArea"
+                    type="text"
+                    id="CommentsOrAdditionalInformation"
+                    value={commentText}
+                    onChange={(e) => setCommentText(e.target.value)}
+                  />
+                </div>
+                // Put the button inside the form
+                <button
+                  type="submit"
+                  form="myForm"
+                  className="btn_submit"
+                  alt="submit Checkout"
+                >
+                </button>
+              </form> */}
+            <Input
+              size="large"
+              placeholder="留言..."
+              name="commentTextArea"
+              type="text"
+              prefix={<UserOutlined />} 
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
+              onPressEnter={handleOnSubmit}
+              allowClear="true"
+            />
             </Col>
           </Row>
         </>

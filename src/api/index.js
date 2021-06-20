@@ -23,9 +23,7 @@ const pokesDocRef = pokesCollectionRef.doc("json");
 const allPokesCollectionRef = pokesDocRef.collection("allPokes");
 const allOrdersCollectionRef = firebase.firestore().collection("allOrders");
 // REFERENCE COMMENTS
-const commentsCollectionRef = firebase.firestore().collection("comments");
-const commentsDocRef = commentsCollectionRef.doc("json");
-const allCommmentsCollectionRef = commentsDocRef.collection("allComments");
+const allCommentsCollectionRef = firebase.firestore().collection("allComments");
 
 //REFERENCE AUTH
 const auth = firebase.auth();
@@ -72,10 +70,10 @@ export const getPokes = async (url) => {
 
 
 
-export const sendCommmentWithUserInfo = async (pokeId, displayName, comment) => {
-  const docRef = allCommmentsCollectionRef.collection(pokeId)
+export const sendCommentWithUserInfo = async (pokeId, displayName, comment) => {
+  const docRef = allCommentsCollectionRef.doc(pokeId).collection("comments");
   docRef.add({
-    senderName: displayName,
+    // senderName: displayName,
     comment: comment,
     timeStamp: Date.now(),
   })
@@ -103,9 +101,8 @@ export const feedPokes = () => {
       // user,
       // f_id
     });
-    const docRefCom = allCommmentsCollectionRef.doc(poke.id)
-    docRefCom.set({
-    });
+    const collectionRef = allCommentsCollectionRef.doc(poke.id).collection("comments")
+    collectionRef.add({});
   })
 }
 

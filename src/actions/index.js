@@ -27,6 +27,9 @@ import {
   SUCCESS_SORTBAR_REQUEST,
   RESET_SORTBAR_ACTIVETYPE,
   SEND_COMMENT,
+  BEGIN_SEND_COMMENT,
+  SUCCESS_SEND_COMMENT,
+  FAIL_SEND_COMMENT,
 } from "../utils/constants";
 
 import {
@@ -40,6 +43,7 @@ import {
   checkLoginApi,
   
   sortPokesByType,
+  sendCommentWithUserInfo,
 } from "../api";
 
 // FEED JSON TO FIREBASE
@@ -283,6 +287,11 @@ export const checkLogin = (dispatch) => {
 
 
 
-export const sendComments = async (dispatch) => {
-  
+export const sendComment = async (dispatch, pokeId, userName, comment) => {
+  try {
+    // dispatch({ type: SEND_COMMENT });
+    sendCommentWithUserInfo(pokeId, userName, comment)
+  } catch (e) {
+
+  }
 }

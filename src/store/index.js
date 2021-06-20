@@ -29,6 +29,7 @@ import {
   BEGIN_SORTBAR_REQUEST,
   SUCCESS_SORTBAR_REQUEST,
   RESET_SORTBAR_ACTIVETYPE,
+  SEND_COMMENT,
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -127,7 +128,8 @@ function reducer(state, action) {
       return {
         ...state,
         sortBar: {
-          ...state.sortBar, activeTypes: action.payload
+          ...state.sortBar,
+          activeTypes: action.payload,
         },
       };
     // ??????????????????????????????why ...state.pokeDetail , ...action~
@@ -276,6 +278,18 @@ function reducer(state, action) {
           error: action.payload,
         },
       };
+
+    // case SEND_COMMENT:
+    //   return {
+    //     ...state,
+    //     userRegister: {
+    //       ...state.userRegister,
+    //       loading: false,
+    //       userInfo: null,
+    //       error: action.payload,
+    //     },
+    //   };
+
     default:
       return state;
   }
