@@ -101,28 +101,29 @@ function PokeDetail() {
               </div>
             </Col>
           </Row>
-          <Row>
+          <Row justify="center">
             <Col
-              xs={{ span: 18 }}
-              sm={{ span: 18 }}
-              md={{ span: 20 }}
-              lg={{ span: 20 }}
-              xl={{ span: 20 }}
-              xxl={{ span: 20 }}
+              xs={{ span: 24 }}
+              sm={{ span: 24 }}
+              md={{ span: 24 }}
+              lg={{ span: 24 }}
+              xl={{ span: 24 }}
+              xxl={{ span: 24 }}
             >
               <CommentList />
             </Col>
           </Row>
-          <Row>
+          <Row justify="center" className="comment-input__wrap">
             <Col
-              xs={{ span: 18 }}
-              sm={{ span: 18 }}
+              xs={{ span: 20 }}
+              sm={{ span: 20 }}
               md={{ span: 20 }}
               lg={{ span: 20 }}
               xl={{ span: 20 }}
               xxl={{ span: 20 }}
             >
               <Input
+                className="comment-input"
                 size="large"
                 placeholder="留言..."
                 name="commentTextArea"

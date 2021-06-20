@@ -17,26 +17,29 @@ export default function CommentList() {
   );
 
   return (
-    <>
+    <div className="commentList__wrap">
       {/* {loading ? (
         <div className="spinner__wrap">
           <Spin indicator={spinnerIcon} className="spinner" />
         </div>
       ) : ( */}
-        <Row gutter={[24, 24]}>
+        <div className="commentList__title">留言板</div>
+        <Row gutter={[24, 24]} justify="center">
           {comments.map((comment) => (
             <Col
               key={comment.timeStamp}
-              sm={{ span: 8 }}
-              lg={{ span: 6 }}
-              xl={{ span: 4 }}
-              xxl={{ span: 4 }}
+              xs={{ span: 20 }}
+              sm={{ span: 20 }}
+              md={{ span: 20 }}
+              lg={{ span: 20 }}
+              xl={{ span: 20 }}
+              xxl={{ span: 20 }}
             >
-              <div className="test">{comment.comment}</div>
+              <div className="commentList__item">{comment.comment}</div>
             </Col>
           ))}
         </Row>
       {/* )} */}
-    </>
+    </div>
   );
 }

@@ -13,8 +13,8 @@ function Poke({ match }) {
 
 	const { dispatch } = useContext(StoreContext);
 
-	useEffect(() => setPokeDetail(dispatch, match.params.pokeId, 0),[])
-	useEffect(() => setCommentList(dispatch, match.params.pokeId),[])
+	// useEffect(() => setPokeDetail(dispatch, match.params.pokeId, 0),[])
+	// useEffect(() => setCommentList(dispatch, match.params.pokeId),[])
 
 	useEffect(() => {
 		setPokeDetail(dispatch, match.params.pokeId, 0);

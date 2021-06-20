@@ -710,9 +710,33 @@ span.hamMenu__bar4--touch {
   opacity: 0.3;
 }
 
-.test {
-  background-color: #fcfaf2;
-  width: 100px;
-  height: 100px;
+/* Comment List */
+.commentList__wrap {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.commentList__title {
+  font-size: 3.6rem;
   color: #4d7072;
+  text-align: center;
+}
+
+.commentList__item {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #f5fef5;
+  width: 100%;
+  min-height: 8rem;
+  color: #4d7072;
+  font-size: 2.4rem;
+}
+
+.comment-input__wrap {
+  padding-top: 2rem;
+}
+
+.comment-input {
+  height: 6rem;
+  font-size: 2.4rem;
 }
