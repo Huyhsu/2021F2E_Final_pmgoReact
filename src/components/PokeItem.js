@@ -2,7 +2,7 @@ import { Card } from "antd";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../store"
-import { setPokeDetail } from "../actions";
+import { setPokeDetail, setCommentList } from "../actions";
 
 export default function PokeItem({ poke }) {
 	const { dispatch } = useContext(StoreContext);
@@ -12,6 +12,7 @@ export default function PokeItem({ poke }) {
         to={`/poke/${poke.id}`}
         onClick={() => {
           setPokeDetail(dispatch, poke.id, 1);
+          setCommentList(dispatch, poke.id)
         }}
       >
         <img

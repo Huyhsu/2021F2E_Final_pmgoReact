@@ -709,3 +709,10 @@ span.hamMenu__bar4--touch {
 .sortBar__btn--inactive {
   opacity: 0.3;
 }
+
+.test {
+  background-color: #fcfaf2;
+  width: 100px;
+  height: 100px;
+  color: #4d7072;
+}

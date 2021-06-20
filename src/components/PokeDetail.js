@@ -3,38 +3,38 @@ import { Row, Col, Select, Spin, Input, Form } from "antd";
 import { UserOutlined } from '@ant-design/icons';
 import { LoadingIcon } from "../components/Icons";
 import { StoreContext } from "../store";
-import { setPokeDetail, setPokeShiny, sendComment } from "../actions";
+import { setPokeDetail, setPokeShiny, sendComment, setCommentList } from "../actions";
 import AddToBag from "./AddToBag";
+import CommentList from "./CommentList";
 
 const { Option } = Select;
 const { TextArea } = Input;
 
 function PokeDetail() {
-  const { state: { pokeDetail: { poke, qty },pokeIsShiny: { shiny }, requestPokes: { loading }, userSignIn: { userInfo } },dispatch,} = useContext(StoreContext);
+  const {
+    state: {
+      pokeDetail: { poke, qty },
+      pokeIsShiny: { shiny },
+      requestPokes: { loading },
+      userSignIn: { userInfo },
+    },
+    dispatch,
+  } = useContext(StoreContext);
+
   const spinnerIcon = (
     <LoadingIcon style={{ fontSize: 80, color: "#4d7072" }} spin />
   );
 
-  // const handleChange = (event) => {
-  //   this.setState({ value: event.target.value });
-  // };
+  const [commentText, setCommentText] = useState("");
 
-  // const handleSubmit = (event) => {
-  //   alert('A name was submitted: ' + this.state.value);
-  //   event.preventDefault();
-  // }
-  const [commentText,setCommentText] = useState("")
-
-  const handleOnSubmit = event => {
+  const handleOnSubmit = (event) => {
     event.preventDefault();
     console.log(commentText);
-    if (commentText != "")
-      sendComment(dispatch, poke.id, userInfo.name, commentText);
+    if (commentText !== "")
+      sendComment(dispatch, poke.id, commentText);
     setCommentText("");
-  }
-
-  // const [form] = Form.useForm();
-
+    setCommentList(dispatch, poke.id)
+  };
 
   return (
     <div className="pokeDetail__wrap">
@@ -110,46 +110,30 @@ function PokeDetail() {
               xl={{ span: 20 }}
               xxl={{ span: 20 }}
             >
-              {/* //////////////////////////////////////////////////////////////////////////////////////// */}
-              {/* <TextArea
-                placeholder="輸入留言"
-                autoSize={{ minRows: 2, maxRows: 6 }}
-                value={this.value}
-              /> */}
-              {/* <form id="myForm" onSubmit={handleOnSubmit}>
-                <div>
-                  <label htmlFor="CommentsOrAdditionalInformation">
-                    Comments or Additional Information
-                  </label>
-                  // You can self-close the textarea tag
-                  <textarea
-                    name="commentTextArea"
-                    type="text"
-                    id="CommentsOrAdditionalInformation"
-                    value={commentText}
-                    onChange={(e) => setCommentText(e.target.value)}
-                  />
-                </div>
-                // Put the button inside the form
-                <button
-                  type="submit"
-                  form="myForm"
-                  className="btn_submit"
-                  alt="submit Checkout"
-                >
-                </button>
-              </form> */}
-            <Input
-              size="large"
-              placeholder="留言..."
-              name="commentTextArea"
-              type="text"
-              prefix={<UserOutlined />} 
-              value={commentText}
-              onChange={(e) => setCommentText(e.target.value)}
-              onPressEnter={handleOnSubmit}
-              allowClear="true"
-            />
+              <CommentList />
+            </Col>
+          </Row>
+          <Row>
+            <Col
+              xs={{ span: 18 }}
+              sm={{ span: 18 }}
+              md={{ span: 20 }}
+              lg={{ span: 20 }}
+              xl={{ span: 20 }}
+              xxl={{ span: 20 }}
+            >
+              <Input
+                size="large"
+                placeholder="留言..."
+                name="commentTextArea"
+                type="text"
+                prefix={<UserOutlined />}
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
+                onPressEnter={handleOnSubmit}
+                allowClear="true"
+                autoComplete="off"
+              />
             </Col>
           </Row>
         </>

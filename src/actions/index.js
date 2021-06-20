@@ -30,6 +30,7 @@ import {
   BEGIN_SEND_COMMENT,
   SUCCESS_SEND_COMMENT,
   FAIL_SEND_COMMENT,
+  SET_COMMENT_LIST,
 } from "../utils/constants";
 
 import {
@@ -44,6 +45,7 @@ import {
   
   sortPokesByType,
   sendCommentWithUserInfo,
+  getComments,
 } from "../api";
 
 // FEED JSON TO FIREBASE
@@ -287,10 +289,23 @@ export const checkLogin = (dispatch) => {
 
 
 
-export const sendComment = async (dispatch, pokeId, userName, comment) => {
+export const sendComment = async (dispatch, pokeId, comment) => {
   try {
     // dispatch({ type: SEND_COMMENT });
-    sendCommentWithUserInfo(pokeId, userName, comment)
+    sendCommentWithUserInfo(pokeId, comment)
+  } catch (e) {
+
+  }
+}
+
+export const setCommentList = async (dispatch, pokeId) => {
+  let comments = [];
+  try {
+    comments = await getComments(pokeId);
+    dispatch({ 
+      type: SET_COMMENT_LIST,
+      payload: comments,
+    });    
   } catch (e) {
 
   }

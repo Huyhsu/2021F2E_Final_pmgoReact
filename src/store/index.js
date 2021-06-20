@@ -30,6 +30,7 @@ import {
   SUCCESS_SORTBAR_REQUEST,
   RESET_SORTBAR_ACTIVETYPE,
   SEND_COMMENT,
+  SET_COMMENT_LIST,
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -89,6 +90,9 @@ const initialState = {
     userInfo: null,
     error: "",
   },
+  commentList: {
+    comments: [],
+  }
 };
 
 function reducer(state, action) {
@@ -289,7 +293,13 @@ function reducer(state, action) {
     //       error: action.payload,
     //     },
     //   };
-
+    case SET_COMMENT_LIST:
+      return {
+        ...state,
+        commentList: {
+          comments: action.payload,
+        },
+      };
     default:
       return state;
   }

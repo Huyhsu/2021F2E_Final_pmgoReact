@@ -68,26 +68,30 @@ export const getPokes = async (url) => {
 }
 
 
+// ///////// COMMENTS
 
-
-export const sendCommentWithUserInfo = async (pokeId, displayName, comment) => {
+export const sendCommentWithUserInfo = async (pokeId, comment) => {
   const docRef = allCommentsCollectionRef.doc(pokeId).collection("comments");
   docRef.add({
     // senderName: displayName,
     comment: comment,
     timeStamp: Date.now(),
+    byInput: true,
   })
 }
 
-
-
-
-
-
-
-
-
-
+export const getComments = async (pokeId) => {
+  let jsonComments = [];
+  // QUERY POKEMONS
+  let querySnapshot;
+  querySnapshot = await allCommentsCollectionRef.doc(pokeId).collection("comments").where("byInput", "==", true).orderBy("timeStamp", "asc").get();
+  querySnapshot.forEach((doc) => {
+    jsonComments.push(doc.data());
+  });
+  console.log(jsonComments);
+  return jsonComments;
+}
+// ////////////////////////////////////
 
 export const feedPokes = () => {
   pokes.forEach((poke) => {
@@ -102,7 +106,9 @@ export const feedPokes = () => {
       // f_id
     });
     const collectionRef = allCommentsCollectionRef.doc(poke.id).collection("comments")
-    collectionRef.add({});
+    collectionRef.add({
+      byInput: false,
+    });
   })
 }
 
