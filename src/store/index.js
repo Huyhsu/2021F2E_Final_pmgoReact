@@ -35,18 +35,26 @@ import {
 
 export const StoreContext = createContext();
 
-let bagItems = localStorage.getItem("bagItems")
-  ? JSON.parse(localStorage.getItem("bagItems"))
-  : [];
+// let bagItems = localStorage.getItem("bagItems")
+//   ? JSON.parse(localStorage.getItem("bagItems"))
+//   : [];
 
-let sortBagItems = localStorage.getItem("sortBagItems")
-  ? JSON.parse(localStorage.getItem("sortBagItems"))
-  : [];
+let bagItems;
+try{
+  bagItems = JSON.parse(localStorage.getItem("bagItems"));
+  if (!bagItems) bagItems = [];
+} catch(e) {
+  bagItems = [];
+}
+
+// let sortBagItems = localStorage.getItem("sortBagItems")
+//   ? JSON.parse(localStorage.getItem("sortBagItems"))
+//   : [];
 
 let userInfo;
 try {
-  userInfo = JSON.parse(localStorage.getItem("userInfo"));
-} catch (e) {
+  userInfo =  JSON.parse(localStorage.getItem("userInfo"));
+} catch(e) {
   userInfo = null;
 }
 
@@ -68,8 +76,10 @@ const initialState = {
   pokeIsShiny: {
     shiny: "notshiny",
   },
-  bagItems,
-  sortBagItems,
+  bag: {
+    bagItems,
+  },
+  // sortBagItems,
   //
   feedPokes: {
     loading: false,
@@ -136,7 +146,6 @@ function reducer(state, action) {
           activeTypes: action.payload,
         },
       };
-    // ??????????????????????????????why ...state.pokeDetail , ...action~
     case SET_POKE_DETAIL:
       return {
         ...state,
@@ -177,21 +186,26 @@ function reducer(state, action) {
       // 	);
       // 	return { ...state, bagItems };
       // }
-      for (var i = 1; i <= item.qty; i++) {
-        bagItems = [...state.bagItems, item];
+      for (let i = 1; i <= item.qty; i++) {
+        bagItems.push(item);
+        // bagItems = [...state.bagItems, item];
       }
       // bagItems = [...state.bagItems, item];
-      return { ...state, bagItems };
+      // return { ...state, bagItems };
+      return { ...state, bag: { ...state.bag, bagItems } };
+
     case REMOVE_BAG_ITEM:
       const removedItem = action.payload;
-      const poke = state.bagItems.find(
+      const poke = state.bag.bagItems.find(
         (x) => x.id === removedItem.id && x.shiny === removedItem.shiny
       );
       // const removedItemIndex = state.bagItems.indexOf((x) => x.id === removedItem.id  && x.shiny === removedItem.shiny);
-      const removedItemIndex = state.bagItems.indexOf(poke);
-      const newBagItems = state.bagItems.splice(removedItemIndex, 1);
+      const removedItemIndex = state.bag.bagItems.indexOf(poke);
+      // const newBagItems = state.bag.bagItems.splice(removedItemIndex, 1);
       // bagItems = state.bagItems.filter((x) => x.id !== action.payload);
-      return { ...state, newBagItems };
+      state.bag.bagItems.splice(removedItemIndex, 1);
+      bagItems = state.bag.bagItems;
+      return { ...state, bag: { ...state.bag, bagItems } };
     // FIREBASE LOGIN
     case BEGIN_LOGIN_REQUEST:
       return { ...state, userSignIn: { ...state.userSignIn, loading: true } };

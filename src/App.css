@@ -113,13 +113,20 @@ body {
   line-height: 0.8;
   padding: 0;
   cursor: pointer;
+  /* font-weight: bold; */
+}
+
+@media (max-width: 576px) {
+  .header__title {
+    font-size: 2.4rem;
+  }
 }
 
 .header__slogan {
   color: #4d7072;
   font-size: 1.8rem;
   opacity: 0.8;
-  padding: 0;
+  padding-bottom: 1rem;
   margin: 0;
   /* line-height: 0.8; */
 }
@@ -272,6 +279,12 @@ span.hamMenu__bar4--touch {
 }
 
 /* Card and PokeItem-component*/
+
+.ant-card-body {
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+}
+
 .poke__card {
   border-radius: 2rem;
   background-color: #f2f2f2;
@@ -301,6 +314,7 @@ span.hamMenu__bar4--touch {
 .pokeItem__type-wrap {
   display: flex;
   align-items: center;
+  padding-top: 0.6em;
 }
 
 .pokeItem__type {
@@ -394,7 +408,11 @@ span.hamMenu__bar4--touch {
 
 /* PokeDetail-component */
 .pokeDetail__wrap {
-  padding: 4rem;
+  padding: 2rem;
+}
+
+.pokeDetail__info-wrap {
+  padding-top: 4rem;
 }
 
 .pokeDetail__name {
@@ -436,11 +454,15 @@ span.hamMenu__bar4--touch {
   color: #4d7072;
 }
 
+.pokeDetail__image {
+  padding-bottom: 2rem;
+}
+
 .pokeDetail__style-wrap {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap; */
   font-size: 2.4rem;
   color: #1d8796;
 }
@@ -452,21 +474,51 @@ span.hamMenu__bar4--touch {
 
 .pokeDetail__shiny {
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.pokeDetail__qty {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.pokeDetail__qty-btn {
+  cursor: pointer;
 }
 
 .pokeDetail__btn-toBag {
   height: auto;
   font-size: 2.4rem;
   color: #e7f0e1;
-  background-color: #1d8796;
+  background-color: #05bfb9;
   margin-top: 2rem;
+  border: none;
+  border-radius: 1rem;
 }
 
 .pokeDetail__btn-toBag:hover {
   background-color: #1d8796;
+}
+
+.pokeDetail__btn-toBag:focus {
+  background-color: #05bfb9;
   opacity: 0.7;
 }
 
+.pokeItem__name {
+  margin-top: 0;
+  margin-bottom: 0;
+  width: auto;
+}
+
+.pokeItem__name-wrap {
+  display: flex;
+  align-items: center;
+}
+
+/* Bag Detail */
 .bagDetail__tips {
   text-align: center;
   font-size: 2.4rem;
@@ -481,11 +533,23 @@ span.hamMenu__bar4--touch {
 .bagDetail__delete-btn {
   text-align: right;
   font-size: 2.4rem;
+  font-weight: bold;
   cursor: pointer;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* margin-left: 50%; */
+  position: absolute;
+  right: 10%;
+  color: #05bfb9;
 }
 
 .bagDetail__delete-btn:hover {
-  color: #fafafa;
+  color: #4d7072;
+  transition: all 0.25s;
+}
+
+.bagDetail__btn-check {
+  width: 100%;
 }
 
 /* Footer */
@@ -556,6 +620,10 @@ span.hamMenu__bar4--touch {
   margin-right: auto;
 }
 
+.ant-form-item-required {
+  color: #4d7072 !important;
+}
+
 .login-form {
   max-width: 30rem;
   height: 40rem;
@@ -567,9 +635,21 @@ span.hamMenu__bar4--touch {
 	padding: 2rem;
 }
 
+.check__note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4d7072;
+}
+.check__had {
+  color: #4d7072;
+  margin-top: 1rem;
+}
+
 .register-form {
   max-width: 40rem;
 	border-radius: 1rem;
+  padding: 2rem;
 }
 
 .shipping-form {
@@ -588,7 +668,7 @@ span.hamMenu__bar4--touch {
   float: left;
 }
 
-.login-form__button {
+.login-form__btn {
   width: 100%;
 }
 
@@ -653,20 +733,21 @@ span.hamMenu__bar4--touch {
   color: #4d7072;
 }
 
-.login-form__button {
+.login-form__btn {
   background-color: #05bfb9;
   color: #fff;
   border: none;
 	border-radius: 1rem;
 }
 
-.login-form__button:hover {
+.login-form__btn:hover {
   background-color: #1d8796;
   transition: all 0.5s;
 }
 
-.login-form__button:focus {
+.login-form__btn:focus {
   background-color: #05bfb9;
+  opacity: 0.7;
 }
 
 .login-form-title-wrap {
@@ -678,6 +759,7 @@ span.hamMenu__bar4--touch {
 
 .login-form-title {
 	font-size: 2.4rem;
+  color: #4d7072;
 }
 
 /* Sort Bar */
@@ -729,7 +811,7 @@ span.hamMenu__bar4--touch {
   width: 100%;
   min-height: 8rem;
   color: #4d7072;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
 }
 
 .comment-input__wrap {
@@ -739,4 +821,15 @@ span.hamMenu__bar4--touch {
 .comment-input {
   height: 6rem;
   font-size: 2.4rem;
+}
+
+.commentList__title-wrap {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 2rem;
+}
+
+.test {
+  color: #4d7072 !important;
 }

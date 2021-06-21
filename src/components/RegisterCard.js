@@ -2,6 +2,7 @@ import { Link, useHistory } from "react-router-dom";
 import React, { useContext, useEffect } from 'react';
 import { Form, Input, Checkbox, Button } from 'antd';
 import { WarningOutlined } from '@ant-design/icons';
+import { BallIcon } from "./Icons";
 import { registerToFirebase } from '../actions'
 import { StoreContext } from "../store"
 
@@ -59,6 +60,10 @@ const RegisterCard = ({ redirect }) => {
       className="register-form"
       scrollToFirstError
     >
+      <div className="login-form-title-wrap">
+        <BallIcon size={28} />
+        <div className="login-form-title">註冊帳戶</div>
+      </div>
       <Form.Item
         name="name"
         label="你的暱稱"
@@ -120,9 +125,7 @@ const RegisterCard = ({ redirect }) => {
                 return Promise.resolve();
               }
 
-              return Promise.reject(
-                new Error("密碼不符合!")
-              );
+              return Promise.reject(new Error("密碼不符合!"));
             },
           }),
         ]}
@@ -143,15 +146,16 @@ const RegisterCard = ({ redirect }) => {
         ]}
         {...tailFormItemLayout}
       >
-        <Checkbox>
-          我已閱讀並瞭解<Link to={"/"}>服務條款</Link>及<Link to={"/"}>隱私權聲明</Link>。
+        <Checkbox className="check__note">
+          我已閱讀並瞭解<Link to={"/"}>服務條款</Link>及
+          <Link to={"/"}>隱私權聲明</Link>。
         </Checkbox>
       </Form.Item>
       <Form.Item {...tailFormItemLayout}>
         {loading ? (
           <Button
             type="primary"
-            className="login-form__button"
+            className="login-form__btn"
             htmlType="submit"
             loading
           >
@@ -160,14 +164,13 @@ const RegisterCard = ({ redirect }) => {
         ) : (
           <Button
             type="primary"
-            className="login-form__button"
+            className="login-form__btn"
             htmlType="submit"
           >
             註冊帳戶
           </Button>
         )}
-         已經擁有帳戶?{" "}
-        <Link to={"/login?redirect=profile"}>登入</Link>
+        <div className="check__had">已經擁有帳戶? <Link to={"/login?redirect=profile"}>登入</Link></div>
         {error === "" ? (
           <></>
         ) : (
@@ -175,7 +178,7 @@ const RegisterCard = ({ redirect }) => {
             <h3 className="login-form__error-title">
               <WarningOutlined className="site-form-item-icon" />
               {"  "}There was a problem
-             </h3>
+            </h3>
             <p className="login-form__error-message">{error}</p>
           </div>
         )}

@@ -81,6 +81,7 @@ export const addBagItem = (dispatch, poke, qty, shiny) => {
 export const removeBagItem = (dispatch, poke, shiny) => {
   const removedItem = {
     id: poke.id,
+    no: poke.no,
     name: poke.name,
     image: poke.image,
     shinyimage: poke.shinyimage,
@@ -310,3 +311,7 @@ export const setCommentList = async (dispatch, pokeId) => {
 
   }
 }
+
+// export const addQty = (dispatch, qty) => {
+
+// }

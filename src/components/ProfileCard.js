@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Input, Button } from "antd";
+import { BallIcon } from "./Icons";
 import { logoutFromFirebase, updateUserInfo } from "../actions";
 import { StoreContext } from "../store";
 
@@ -28,6 +29,10 @@ const ProfileCard = () => {
       form={form}
       initialValues={userInfo}
     >
+      <div className="login-form-title-wrap">
+        <BallIcon size={28} />
+        <div className="login-form-title">個人資料</div>
+      </div>
       <Form.Item
         label="暱稱: "
         name="name"
@@ -63,7 +68,6 @@ const ProfileCard = () => {
       <Form.Item
         label="密碼"
         name="password"
-        
         rules={[
           {
             message: "請輸入密碼",
@@ -89,9 +93,7 @@ const ProfileCard = () => {
                 return Promise.resolve();
               }
 
-              return Promise.reject(
-                new Error("密碼不符合!")
-              );
+              return Promise.reject(new Error("密碼不符合!"));
             },
           }),
         ]}
@@ -100,18 +102,14 @@ const ProfileCard = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
-          className="login-form__button"
-        >
+        <Button type="primary" htmlType="submit" className="login-form__btn">
           提交修改
         </Button>
 
         <Button
           type="danger"
           style={{ marginTop: "0.8rem" }}
-          className="login-form__button"
+          className="login-form__btn"
           onClick={handleLogout}
         >
           登出

@@ -35,7 +35,7 @@ const LoginCard = ({ redirect }) => {
       onFinish={onFinish}
     >
       <div className="login-form-title-wrap">
-        <BallIcon size={32}/>
+        <BallIcon size={28}/>
         <div className="login-form-title">登入帳戶</div>
       </div>
       
@@ -92,7 +92,7 @@ const LoginCard = ({ redirect }) => {
           <Button
             type="primary"
             htmlType="submit"
-            className="login-form__button"
+            className="login-form__btn"
             loading
           >
             登入
@@ -101,12 +101,12 @@ const LoginCard = ({ redirect }) => {
           <Button
             type="primary"
             htmlType="submit"
-            className="login-form__button"
+            className="login-form__btn"
           >
             登入
           </Button>
         )}
-        或是 <Link to={"/register?redirect=profile"}>註冊</Link>
+        <div className="check__had">或是 <Link to={"/register?redirect=profile"}>註冊</Link></div>
         {error === "" ? (
           <></>
         ) : (

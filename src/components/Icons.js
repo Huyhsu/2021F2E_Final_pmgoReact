@@ -131,3 +131,58 @@ export function LoadingIcon({ size }) {
     </svg>
   );
 }
+
+export function PlusIcon({ size }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 80 80"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="pokeDetail__qty-btn"
+    >
+      <circle
+        cx="40"
+        cy="40"
+        r="38.5"
+        fill="white"
+        stroke="#5DD0DE"
+        stroke-width="3"
+      />
+      <rect x="23" y="38" width="34" height="4" rx="2" fill="#5DD0DE" />
+      <rect
+        x="42"
+        y="23"
+        width="34"
+        height="4"
+        rx="2"
+        transform="rotate(90 42 23)"
+        fill="#5DD0DE"
+      />
+    </svg>
+  );
+}
+
+export function MinusIcon({ size }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 80 80"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="pokeDetail__qty-btn"
+    >
+      <circle
+        cx="40"
+        cy="40"
+        r="38.5"
+        fill="white"
+        stroke="#5DD0DE"
+        stroke-width="3"
+      />
+      <rect x="23" y="38" width="34" height="4" rx="2" fill="#5DD0DE" />
+    </svg>
+  );
+}

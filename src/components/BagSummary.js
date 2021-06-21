@@ -7,10 +7,10 @@ import { setPage } from "../actions";
 
 
 export default function BagSummary() {
-  const { state: { bagItems }, dispatch } = useContext(StoreContext);
+  const { state: { bag: { bagItems }, pokeDetail: { qty } }, dispatch } = useContext(StoreContext);
 
   const count = (bagItems.length > 0) ?
-    bagItems.reduce((sum, item) => sum + item.qty, 0)
+    bagItems.reduce((sum, item) => sum + item.qty - item.qty + 1, 0)
     : 0;
   const onClick = () => {
     setPage(dispatch, "/");

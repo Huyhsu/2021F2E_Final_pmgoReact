@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import { Row, Col, Select, Spin, Input, Form } from "antd";
+import { Row, Col, Select, Spin, Input, Form, Slider, InputNumber } from "antd";
 import { UserOutlined } from '@ant-design/icons';
-import { LoadingIcon } from "../components/Icons";
+import { LoadingIcon, BallIcon, PlusIcon, MinusIcon } from "../components/Icons";
 import { StoreContext } from "../store";
 import { setPokeDetail, setPokeShiny, sendComment, setCommentList } from "../actions";
 import AddToBag from "./AddToBag";
@@ -46,10 +46,10 @@ function PokeDetail() {
         <>
           <Row gutter={[32, 32]} justify="space-around">
             <Col lg={{ span: 8, offset: 2 }}>
-              <img className="poke__image" alt="" src={poke.image} />
+              <img className="pokeDetail__image" alt="" src={poke.image} />
             </Col>
-            <Col lg={{ span: 12 }}>
-              <div className="">
+            <Col lg={{ span: 12, offset: 2}}>
+              <div className="pokeDetail__info-wrap">
                 <h1 className="pokeDetail__name">{poke.name}</h1>
                 <h2 className="pokeDetail__category">{poke.category}</h2>
                 <div className="pokeDetail__type-wrap">
@@ -63,15 +63,18 @@ function PokeDetail() {
                     {poke.type2}
                   </h2>
                 </div>
-                <p className="pokeDetail__about">{poke.about}</p>
               </div>
             </Col>
           </Row>
           <Row gutter={[32, 32]} justify="space-around">
-            <Col lg={{ span: 12, offset: 0 }}>
+            <Col lg={{ span: 10, offset: 1 }}>
+              <p className="pokeDetail__about">{poke.about}</p>
+            </Col>
+            <Col lg={{ span: 12, offset: 1 }}>
               <div className="pokeDetail__style-wrap">
                 <div className="pokeDetail__qty">
                   數量: {"   "}
+                  <MinusIcon size={32} className="pokeDetail__qty-btn"/>
                   <Select
                     defaultValue={qty}
                     value={qty}
@@ -84,6 +87,8 @@ function PokeDetail() {
                       </Option>
                     ))}
                   </Select>
+                  {qty}
+                  <PlusIcon size={32} className="pokeDetail__qty-btn"/>
                 </div>
                 <div className="pokeDetail__shiny">
                   異色: {"   "}

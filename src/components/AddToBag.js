@@ -1,11 +1,11 @@
 import { useEffect, useContext } from "react";
 import { Button, notification } from "antd"
 import { StoreContext } from "../store"
-import { BagIcon } from "./Icons";
+import { NewBagIcon } from "./Icons";
 import { addBagItem } from "../actions";
 
 export default function AddToBag() {
-  	const { state: { bagItems, pokeDetail: { poke, qty }, pokeIsShiny: { shiny } }, dispatch } = useContext(StoreContext);
+  	const { state: { bag: { bagItems }, pokeDetail: { poke, qty }, pokeIsShiny: { shiny } }, dispatch } = useContext(StoreContext);
 
   	const openNotification = () => {
     	notification.open({
@@ -30,8 +30,7 @@ export default function AddToBag() {
 
   	return (
     	<Button type="primary" className="pokeDetail__btn-toBag" onClick={addToBag}>
-      		{/* <BagIcon size={20} /> */}
-      		<span style={{ marginLeft: 12 }}>加入背包</span>
+      		<span>加入背包</span>
     	</Button>
   );
 }

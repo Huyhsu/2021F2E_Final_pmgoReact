@@ -25,7 +25,7 @@ function Profile() {
         </Header>
         <NavBar />
         <Content className="layout__content">
-          <Row gutter={[32, 32]} justify="space-around">
+          <Row gutter={[32, 32]} justify="center">
             <Col lg={{ span: 8 }}>
               <ProfileCard />
             </Col>
