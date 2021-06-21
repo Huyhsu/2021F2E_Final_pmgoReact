@@ -31,6 +31,17 @@ import {
   SUCCESS_SEND_COMMENT,
   FAIL_SEND_COMMENT,
   SET_COMMENT_LIST,
+  EMPTY_BAG,
+  BEGIN_ORDERS_REQUEST,
+  SUCCESS_ORDERS_REQUEST,
+  FAIL_ORDERS_REQUEST,
+  BEGIN_ORDER_CREATE,
+  SUCCESS_ORDER_CREATE,
+  FAIL_ORDER_CREATE,
+  BEGIN_ORDER_DETAIL,
+  SUCCESS_ORDER_DETAIL,
+  FAIL_ORDER_DETAIL,
+  RESET_ORDER,
 } from "../utils/constants";
 
 import {
@@ -46,6 +57,9 @@ import {
   sortPokesByType,
   sendCommentWithUserInfo,
   getComments,
+  createOrderApi,
+  getOrderById,
+  getOrderByUser
 } from "../api";
 
 // FEED JSON TO FIREBASE
@@ -65,6 +79,8 @@ export const addBagItem = (dispatch, poke, qty, shiny) => {
   const item = {
     id: poke.id,
     no: poke.no,
+    number: poke.number,
+    types: poke.types,
     name: poke.name,
     image: poke.image,
     shinyimage: poke.shinyimage,
@@ -312,6 +328,60 @@ export const setCommentList = async (dispatch, pokeId) => {
   }
 }
 
-// export const addQty = (dispatch, qty) => {
+// Order
+export const createOrder = async (dispatch, bag) => {
+  dispatch({ type: BEGIN_ORDER_CREATE });
+  try {
+    const item = {
+      orderItems: bag.bagItems,
+    };    
+    const orderInfo = await createOrderApi(item);
+    dispatch({ 
+      type: SUCCESS_ORDER_CREATE, 
+      payload: orderInfo 
+    });
+    dispatch({ type: EMPTY_BAG,})
+    localStorage.setItem('orderInfo', JSON.stringify(orderInfo));
+    localStorage.removeItem("bagItems");
+    return orderInfo;
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: FAIL_ORDER_CREATE, payload: error });
+    return null;
+  }  
+};
 
-// }
+export const requestOrderDetail = async (dispatch, orderId) => {
+  dispatch({ type: BEGIN_ORDER_DETAIL });
+  try {
+    const order = await getOrderById(orderId);
+    dispatch({ 
+      type: SUCCESS_ORDER_DETAIL,
+      payload: order
+    });
+  } catch (error) {
+    dispatch({ 
+      type: FAIL_ORDER_DETAIL, 
+      payload: error 
+    });
+  }
+}
+
+export const resetOrder = (dispatch) => {
+  dispatch({ type: RESET_ORDER });
+}
+
+export const setOrderList = async (dispatch) => {
+  let orders = []
+  dispatch({ type: BEGIN_ORDERS_REQUEST });
+  try {
+    orders = await getOrderByUser();
+    dispatch({ 
+      type: SUCCESS_ORDERS_REQUEST,
+      payload: orders
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: FAIL_ORDERS_REQUEST, payload: error });
+  }
+}

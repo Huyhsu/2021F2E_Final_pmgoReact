@@ -550,6 +550,8 @@ span.hamMenu__bar4--touch {
 
 .bagDetail__btn-check {
   width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
 /* Footer */
@@ -830,6 +832,10 @@ span.hamMenu__bar4--touch {
 	padding-bottom: 2rem;
 }
 
-.test {
-  color: #4d7072 !important;
+/* Place Order */
+.placeOrderCard__wrap {
+  background-color: #f5fef5;
+  background-color: rgba(245, 254, 245, 0.3);
+  border-radius: 2rem;
+  padding: 2rem;
 }

@@ -7,6 +7,7 @@ import Feed from './pages/Feed'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile';
+import PlaceOrder from './pages/PlaceOrder';
 import { StoreProvider } from './store';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/login" component={ Login } />
                     <Route path="/register" component={ Register } />
                     <Route path="/profile" component={ Profile } />
+                    <Route path="/placeorder" component={ PlaceOrder } />
                 </Switch>
             </BrowserRouter>
         </StoreProvider>

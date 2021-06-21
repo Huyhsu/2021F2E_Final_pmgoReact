@@ -17,7 +17,7 @@ export const REMOVE_BAG_ITEM = "REMOVE_BAG_ITEM";
 // export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
 export const SAVE_SHIPPING_ADDRESS = "SAVE_SHIPPING_ADDRESS";
 export const SAVE_PAYMENT_METHOD = "SAVE_PAYMENT_METHOD";
-export const EMPTY_CART = "EMPTY_CART"
+export const EMPTY_BAG = "EMPTY_BAG"
 
 // FEED FIREBASE POKES////////////////////////////////////////////////////////////
 export const BEGIN_POKES_FEED = "BEGIN_POKES_FEED";

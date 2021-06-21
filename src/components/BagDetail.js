@@ -5,7 +5,7 @@ import { StoreContext } from "../store"
 import { BagIcon } from "./Icons";
 import { removeBagItem, setPokeDetail } from "../actions";
 
-export default function CartModal() {
+export default function BagDetail() {
   const {
     state: {
       bag: { bagItems },
@@ -21,7 +21,7 @@ export default function CartModal() {
 	const history = useHistory();
 
   const checkoutHandler = () => {
-    history.push("/login?redirect=profile");
+    history.push("/login?redirect=placeorder");
   }
 
   return (
@@ -48,14 +48,14 @@ export default function CartModal() {
                           src={item.image}
                           alt={item.name}
                           className="pokeCard__img"
-                          style={{ width: "70%" }}
+                          style={{ width: "80%" }}
                         />
                       ) : (
                         <img
                           src={item.shinyimage}
                           alt={item.name}
                           className="pokeCard__img"
-                          style={{ width: "70%" }}
+                          style={{ width: "80%" }}
                         />
                       )}
                     </div>

@@ -134,6 +134,9 @@ export const updateUserInfoApi = async (email, password, displayName) => {
   return user;
 }
 
+// Order
+
+
 export const createOrderApi = async (order) => {
   const user = auth.currentUser.uid;
   const orderRef = await allOrdersCollectionRef.doc();
@@ -172,4 +175,5 @@ export const checkLoginApi = () => {
   const user = auth.currentUser;
   return user.uid?  true : false;
 }
+
 

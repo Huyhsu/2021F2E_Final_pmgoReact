@@ -31,6 +31,16 @@ import {
   RESET_SORTBAR_ACTIVETYPE,
   SEND_COMMENT,
   SET_COMMENT_LIST,
+  BEGIN_ORDER_CREATE,
+  SUCCESS_ORDER_CREATE,
+  FAIL_ORDER_CREATE,
+  RESET_ORDER,
+  BEGIN_ORDER_DETAIL,
+  SUCCESS_ORDER_DETAIL,
+  FAIL_ORDER_DETAIL,
+  BEGIN_ORDERS_REQUEST,
+  SUCCESS_ORDERS_REQUEST,
+  FAIL_ORDERS_REQUEST,
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -58,6 +68,13 @@ try {
   userInfo = null;
 }
 
+let orderInfo_order;
+try {
+  orderInfo_order = JSON.parse(localStorage.getItem('orderInfo'));
+} catch(e) {
+  orderInfo_order = { id: "" };
+}
+
 const initialState = {
   page: {
     pokes: [],
@@ -81,6 +98,17 @@ const initialState = {
   },
   // sortBagItems,
   //
+  orderInfo: {
+    loading: false,
+    order: orderInfo_order,
+    success: false,
+    error: null,
+  },
+  orderDetail: {
+    loading: true,
+    order: { cartItems: []},
+    error: null,
+  },
   feedPokes: {
     loading: false,
     error: null,
@@ -102,7 +130,12 @@ const initialState = {
   },
   commentList: {
     comments: [],
-  }
+  },
+  orderList: {
+    orders: [],
+    loading: false,
+    error: null,
+  },
 };
 
 function reducer(state, action) {
@@ -312,6 +345,99 @@ function reducer(state, action) {
         ...state,
         commentList: {
           comments: action.payload,
+        },
+      };
+    case BEGIN_ORDER_CREATE:
+      return {
+        ...state,
+        orderInfo: {
+          ...state.orderInfo,
+          loading: true,
+          success: false,
+        },
+      };
+    case SUCCESS_ORDER_CREATE:
+      return {
+        ...state,
+        orderInfo: {
+          ...state.orderInfo,
+          loading: false,
+          order: action.payload,
+          success: true,
+          error: null,
+        },
+      };
+    case FAIL_ORDER_CREATE:
+      return {
+        ...state,
+        orderInfo: {
+          ...state.orderInfo,
+          loading: false,
+          order: { id: "" },
+          success: false,
+          error: action.payload,
+        },
+      };
+    case RESET_ORDER:
+      return {
+        ...state,
+        orderInfo: {
+          ...state.orderInfo,
+          loading: false,
+          order: { id: "" },
+          success: false,
+        },
+      };
+    case BEGIN_ORDER_DETAIL:
+      return {
+        ...state,
+        orderDetail: {
+          ...state.orderDetail,
+          loading: true,
+        },
+      };
+    case SUCCESS_ORDER_DETAIL:
+      return {
+        ...state,
+        orderDetail: {
+          ...state.orderDetail,
+          loading: false,
+          order: action.payload,
+        },
+      };
+    case FAIL_ORDER_DETAIL:
+      return {
+        ...state,
+        orderDetail: {
+          ...state.orderDetail,
+          loading: false,
+          error: action.payload,
+        },
+      };
+    case BEGIN_ORDERS_REQUEST:
+      return {
+        ...state,
+        orderList: {
+          ...state.orderList,
+          loading: true,
+        },
+      };
+    case SUCCESS_ORDERS_REQUEST:
+      return {
+        ...state,
+        orderList: {
+          ...state.orderList,
+          loading: false,
+          orders: action.payload,
+        },
+      };
+    case FAIL_ORDERS_REQUEST:
+      return {
+        ...state,
+        orderList: {
+          ...state.orderList,
+          loading: false,
+          error: action.payload,
         },
       };
     default:
