@@ -4,7 +4,7 @@ import AppHeader from "../components/Header";
 import NavBar from "../components/NavBar";
 import AppFooter from "../components/Footer";
 import ProfileCard from "../components/ProfileCard";
-// import OrderListCard from "../components/OrderListCard";
+import OrderListCard from "../components/OrderListCard";
 // import { setOrderList } from "../actions"
 import { StoreContext } from "../store";
 import { Row, Col, Spin } from "antd";
@@ -29,9 +29,9 @@ function Profile() {
             <Col lg={{ span: 8 }}>
               <ProfileCard />
             </Col>
-            {/* <Col lg={{ span: 8 }}>
+            <Col lg={{ span: 8 }}>
               <OrderListCard />
-            </Col> */}
+            </Col>
           </Row>
         </Content>
         <Footer className="layout__footer">

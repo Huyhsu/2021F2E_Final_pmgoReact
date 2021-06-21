@@ -305,11 +305,11 @@ export const checkLogin = (dispatch) => {
 }
 
 
-
-export const sendComment = async (dispatch, pokeId, comment) => {
+// Send Comment
+export const sendComment = async (dispatch, pokeId, comment, displayName) => {
   try {
     // dispatch({ type: SEND_COMMENT });
-    sendCommentWithUserInfo(pokeId, comment)
+    sendCommentWithUserInfo(pokeId, comment, displayName)
   } catch (e) {
 
   }
@@ -340,7 +340,7 @@ export const createOrder = async (dispatch, bag) => {
       type: SUCCESS_ORDER_CREATE, 
       payload: orderInfo 
     });
-    dispatch({ type: EMPTY_BAG,})
+    dispatch({ type: EMPTY_BAG })
     localStorage.setItem('orderInfo', JSON.stringify(orderInfo));
     localStorage.removeItem("bagItems");
     return orderInfo;

@@ -87,11 +87,6 @@ export default function BagDetail() {
                         </h2>
                       </div>
                     )}
-                    {/* <div className="bagDetail__delete-wrap">
-											<div className="bagDetail__delete-btn" onClick={() => removeBagItem(dispatch, item, item.shiny)}>
-												x
-											</div>
-										</div> */}
                   </div>
                 </div>
               </Card>

@@ -41,6 +41,7 @@ import {
   BEGIN_ORDERS_REQUEST,
   SUCCESS_ORDERS_REQUEST,
   FAIL_ORDERS_REQUEST,
+  EMPTY_BAG,
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -121,6 +122,7 @@ const initialState = {
     loading: false,
     userInfo,
     remember: true,
+    isLogin: false,
     error: "",
   },
   userRegister: {
@@ -212,32 +214,21 @@ function reducer(state, action) {
       };
     case ADD_BAG_ITEM:
       const item = action.payload;
-      // const poke = state.bagItems.find((x) => x.id === item.id);
-      // if (poke) {
-      // 	bagItems = state.bagItems.map((x) =>
-      // 		x.id === poke.id ? item : x
-      // 	);
-      // 	return { ...state, bagItems };
-      // }
       for (let i = 1; i <= item.qty; i++) {
         bagItems.push(item);
-        // bagItems = [...state.bagItems, item];
       }
-      // bagItems = [...state.bagItems, item];
-      // return { ...state, bagItems };
       return { ...state, bag: { ...state.bag, bagItems } };
-
     case REMOVE_BAG_ITEM:
       const removedItem = action.payload;
       const poke = state.bag.bagItems.find(
         (x) => x.id === removedItem.id && x.shiny === removedItem.shiny
       );
-      // const removedItemIndex = state.bagItems.indexOf((x) => x.id === removedItem.id  && x.shiny === removedItem.shiny);
       const removedItemIndex = state.bag.bagItems.indexOf(poke);
-      // const newBagItems = state.bag.bagItems.splice(removedItemIndex, 1);
-      // bagItems = state.bagItems.filter((x) => x.id !== action.payload);
       state.bag.bagItems.splice(removedItemIndex, 1);
       bagItems = state.bag.bagItems;
+      return { ...state, bag: { ...state.bag, bagItems } };
+    case EMPTY_BAG:
+      bagItems = [];
       return { ...state, bag: { ...state.bag, bagItems } };
     // FIREBASE LOGIN
     case BEGIN_LOGIN_REQUEST:
@@ -249,6 +240,7 @@ function reducer(state, action) {
           ...state.userSignIn,
           loading: false,
           userInfo: action.payload,
+          isLogin: true,
           error: "",
         },
       };
@@ -259,11 +251,12 @@ function reducer(state, action) {
           ...state.userSignIn,
           loading: false,
           userInfo: null,
+          isLogin: false,
           error: action.payload,
         },
       };
     case BEGIN_UPDATE_USERINFO:
-      return { ...state, userSignIn: { ...state.userSignIn, loading: true } };
+      return { ...state, userSignIn: { ...state.userSignIn, loading: true, isLogin: true, } };
     case SUCCESS_UPDATE_USERINFO:
       return {
         ...state,
@@ -272,6 +265,7 @@ function reducer(state, action) {
           loading: false,
           userInfo: action.payload,
           error: "",
+          isLogin: true,
         },
       };
     case FAIL_UPDATE_USERINFO:
@@ -281,6 +275,7 @@ function reducer(state, action) {
           ...state.userSignIn,
           loading: false,
           error: action.payload,
+          isLogin: true,
         },
       };
     case LOGOUT_REQUEST:
@@ -290,6 +285,7 @@ function reducer(state, action) {
         userSignIn: {
           ...state.userSignIn,
           userInfo: null,
+          isLogin: false,
         },
       };
     case REMEMBER_LOGIN:
@@ -317,6 +313,7 @@ function reducer(state, action) {
         userSignIn: {
           ...state.userSignIn,
           userInfo: action.payload,
+          isLogin: true,
         },
       };
     case FAIL_REGISTER_REQUEST:
@@ -329,17 +326,6 @@ function reducer(state, action) {
           error: action.payload,
         },
       };
-
-    // case SEND_COMMENT:
-    //   return {
-    //     ...state,
-    //     userRegister: {
-    //       ...state.userRegister,
-    //       loading: false,
-    //       userInfo: null,
-    //       error: action.payload,
-    //     },
-    //   };
     case SET_COMMENT_LIST:
       return {
         ...state,

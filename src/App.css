@@ -609,6 +609,10 @@ span.hamMenu__bar4--touch {
   margin-top: 20vh;
 }
 
+.spinner__small {
+  margin-top: 2rem;
+}
+
 /* Login/Register/Shipping Form */
 .placeorder-card,
 .shipping-form,
@@ -806,6 +810,10 @@ span.hamMenu__bar4--touch {
   text-align: center;
 }
 
+.commentList__userName {
+  color: #1d8796;
+}
+
 .commentList__item {
   border-radius: 1rem;
   padding: 1rem;
@@ -838,4 +846,27 @@ span.hamMenu__bar4--touch {
   background-color: rgba(245, 254, 245, 0.3);
   border-radius: 2rem;
   padding: 2rem;
+}
+
+/* Order List */
+.orderList__wrap {
+  background-color: #f5fef5;
+  border-radius: 2rem;
+  padding: 2rem;
+}
+
+.order__id {
+  font-size: 1.4rem;
+  color: #4d7072;
+  padding-left: 3rem;
+}
+
+.order__id:hover {
+  color: #05bfb9;
+}
+
+.order__tip {
+  font-size: 2.4rem;
+  color: #4d7072;
+  text-align: center;
 }

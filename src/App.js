@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile';
 import PlaceOrder from './pages/PlaceOrder';
+import Order from './pages/Order';
 import { StoreProvider } from './store';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/register" component={ Register } />
                     <Route path="/profile" component={ Profile } />
                     <Route path="/placeorder" component={ PlaceOrder } />
+                    <Route path="/order/:orderId" component={ Order } />
                 </Switch>
             </BrowserRouter>
         </StoreProvider>

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Row, Col, Select, Spin, Input, Form, Slider, InputNumber } from "antd";
 import { UserOutlined } from '@ant-design/icons';
 import { LoadingIcon, BallIcon, PlusIcon, MinusIcon } from "../components/Icons";
@@ -16,7 +16,7 @@ function PokeDetail() {
       pokeDetail: { poke, qty },
       pokeIsShiny: { shiny },
       requestPokes: { loading },
-      userSignIn: { userInfo },
+      userSignIn: { userInfo, isLogin, },
     },
     dispatch,
   } = useContext(StoreContext);
@@ -31,11 +31,14 @@ function PokeDetail() {
     event.preventDefault();
     console.log(commentText);
     if (commentText !== "")
-      sendComment(dispatch, poke.id, commentText);
+      if ( !userInfo )
+        sendComment(dispatch, poke.id, commentText, "訪客");
+      else
+        sendComment(dispatch, poke.id, commentText, userInfo.displayName);
     setCommentText("");
     setCommentList(dispatch, poke.id)
   };
-
+  
   return (
     <div className="pokeDetail__wrap">
       {loading ? (
@@ -74,7 +77,7 @@ function PokeDetail() {
               <div className="pokeDetail__style-wrap">
                 <div className="pokeDetail__qty">
                   數量: {"   "}
-                  <MinusIcon size={32} className="pokeDetail__qty-btn"/>
+                  {/* <MinusIcon size={32} className="pokeDetail__qty-btn"/> */}
                   <Select
                     defaultValue={qty}
                     value={qty}
@@ -87,8 +90,8 @@ function PokeDetail() {
                       </Option>
                     ))}
                   </Select>
-                  {qty}
-                  <PlusIcon size={32} className="pokeDetail__qty-btn"/>
+                  {/* {qty} */}
+                  {/* <PlusIcon size={32} className="pokeDetail__qty-btn"/> */}
                 </div>
                 <div className="pokeDetail__shiny">
                   異色: {"   "}

@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { UserOutlined, UserSwitchOutlined } from '@ant-design/icons';
+import { UserOutlined, UserSwitchOutlined, UserDeleteOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 
 import { StoreContext } from "../store"
@@ -25,7 +25,7 @@ export default function UserInfo(props) {
          <nav onClick={goToProfile} style={{ ...props.style }} className="header__user-info" >
             {userInfo
                ? <UserOutlined style={{ fontSize: '32px', color: '#1d8796', marginBottom: '4px'}} />
-               : <UserSwitchOutlined style={{ fontSize: '32px', color: '#4d7072', marginBottom: '4px' }} />
+               : <UserDeleteOutlined style={{ fontSize: '32px', color: '#4d7072', marginBottom: '4px' }} />
 
             }
             <p className="header__user-info-text">

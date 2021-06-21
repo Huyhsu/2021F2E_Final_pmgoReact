@@ -38,7 +38,7 @@ export default function CommentList() {
             xl={{ span: 20 }}
             xxl={{ span: 20 }}
           >
-            <div className="commentList__item">{comment.comment}</div>
+            <div className="commentList__item"><div className="commentList__userName">{comment.senderName}：</div>{comment.comment}</div>
           </Col>
         ))}
       </Row>

@@ -33,7 +33,7 @@ export default function PlaceOrderCard() {
     <>
       {loading
         ? (
-          <div className="spinner-wrap">
+          <div className="spinner__wrap">
             <Spin indicator={spinnerIcon} className="spinner" />
           </div>
       ) : (
@@ -93,26 +93,10 @@ export default function PlaceOrderCard() {
                       {item.shiny === "notshiny" ? (
                         <div className="pokeItem__name-wrap">
                           <h2 className="pokeItem__name">{item.name}</h2>
-                          {/* <h2
-                            className="bagDetail__delete-btn"
-                            onClick={() =>
-                              removeBagItem(dispatch, item, item.shiny)
-                            }
-                          >
-                            x
-                          </h2> */}
                         </div>
                       ) : (
                         <div className="pokeItem__name-wrap">
                           <h2 className="pokeItem__name">{item.name} (異色)</h2>
-                          {/* <h2
-                            className="bagDetail__delete-btn"
-                            onClick={() =>
-                              removeBagItem(dispatch, item, item.shiny)
-                            }
-                          >
-                            x
-                          </h2> */}
                         </div>
                       )}
                     </div>

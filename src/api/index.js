@@ -70,10 +70,10 @@ export const getPokes = async (url) => {
 
 // ///////// COMMENTS
 
-export const sendCommentWithUserInfo = async (pokeId, comment) => {
+export const sendCommentWithUserInfo = async (pokeId, comment, displayName) => {
   const docRef = allCommentsCollectionRef.doc(pokeId).collection("comments");
   docRef.add({
-    // senderName: displayName,
+    senderName: displayName,
     comment: comment,
     timeStamp: Date.now(),
     byInput: true,
