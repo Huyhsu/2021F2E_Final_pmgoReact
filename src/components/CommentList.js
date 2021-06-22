@@ -31,9 +31,9 @@ export default function CommentList() {
         {comments.map((comment) => (
           <Col
             key={comment.timeStamp}
-            xs={{ span: 20 }}
-            sm={{ span: 20 }}
-            md={{ span: 20 }}
+            xs={{ span: 24 }}
+            sm={{ span: 24 }}
+            md={{ span: 24 }}
             lg={{ span: 20 }}
             xl={{ span: 20 }}
             xxl={{ span: 20 }}

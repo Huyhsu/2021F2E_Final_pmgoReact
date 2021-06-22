@@ -49,13 +49,22 @@ function PokeDetail() {
         <>
           <Row gutter={[32, 32]} justify="space-around">
             <Col lg={{ span: 8, offset: 2 }}>
-              { shiny === "notshiny" ? (
+              {shiny === "notshiny" ? (
                 <img className="pokeDetail__image" alt="" src={poke.image} />
               ) : (
-                <img className="pokeDetail__image" alt="" src={poke.shinyimage} />
-              ) }
+                <img
+                  className="pokeDetail__image"
+                  alt=""
+                  src={poke.shinyimage}
+                />
+              )}
             </Col>
-            <Col lg={{ span: 12, offset: 2}}>
+            <Col
+              xs={{ span: 24 }}
+              sm={{ span: 24 }}
+              md={{ span: 24 }}
+              lg={{ span: 12, offset: 2 }}
+            >
               <div className="pokeDetail__info-wrap">
                 <h1 className="pokeDetail__name">{poke.name}</h1>
                 <h2 className="pokeDetail__category">{poke.category}</h2>
@@ -127,9 +136,9 @@ function PokeDetail() {
           </Row>
           <Row justify="center" className="comment-input__wrap">
             <Col
-              xs={{ span: 20 }}
-              sm={{ span: 20 }}
-              md={{ span: 20 }}
+              xs={{ span: 24 }}
+              sm={{ span: 24 }}
+              md={{ span: 24 }}
               lg={{ span: 20 }}
               xl={{ span: 20 }}
               xxl={{ span: 20 }}
@@ -140,7 +149,7 @@ function PokeDetail() {
                 placeholder="留言..."
                 name="commentTextArea"
                 type="text"
-                prefix={<UserOutlined style={{ color: '#4d7072' }} />}
+                prefix={<UserOutlined style={{ color: "#4d7072" }} />}
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
                 onPressEnter={handleOnSubmit}
