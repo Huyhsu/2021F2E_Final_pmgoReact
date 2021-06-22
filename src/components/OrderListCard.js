@@ -22,7 +22,7 @@ export default function OrderListCard() {
       <div className="orderList__wrap">
         <div className="login-form-title-wrap">
           <BallIcon size={28}/>
-          <div className="login-form-title">背包紀錄</div>
+          <div className="login-form-title">背包記錄</div>
         </div>
         {loading ? (
           <div className="spinner__wrap">

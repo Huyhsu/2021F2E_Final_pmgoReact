@@ -105,7 +105,7 @@ export default function BagDetail() {
 								type="primary"
 								onClick={checkoutHandler}
 							>
-								<span>紀錄背包</span>
+								<span>記錄背包</span>
 							</Button>
 						</Col>						
 					</Row>
