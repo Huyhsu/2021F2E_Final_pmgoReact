@@ -577,6 +577,7 @@ span.hamMenu__bar4--touch {
 /* Bag Summary */
 .header__bag-summary-text {
   color: #4d7072;
+  font-size: 1.4rem;
 }
 
 .header__bag-summary {
@@ -589,6 +590,7 @@ span.hamMenu__bar4--touch {
 /* User Info */
 .header__user-info-text {
   color: #4d7072;
+  font-size: 1.4rem;
 }
 
 .header__user-info {
